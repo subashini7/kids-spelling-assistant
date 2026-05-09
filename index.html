@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spelling Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <h1>Spelling Assistant</h1>
+      <p class="subtitle">Listen, type, and improve spelling with instant feedback.</p>
+      <div id="status" class="status">Loading model...</div>
+    </header>
+
+    <section class="card">
+      <label id="title" for="child-name">Enter your name</label>
+      <div class="row">
+        <input type="text" id="child-name" spellcheck="false" placeholder="Name">
+        <button id="submit-name-btn">Start</button>
+      </div>
+    </section>
+
+    <section id="game-container" class="card">
+      <div class="row">
+        <button id="hear-btn" disabled>Hear a word</button>
+        <button id="next-word-btn">Next word</button>
+      </div>
+      <p id="instruction">Type the word you heard:</p>
+      <div class="row">
+        <input type="text" id="child-input" spellcheck="false" placeholder="Your answer...">
+        <button id="submit-ans-btn">Check</button>
+      </div>
+      <div id="celebration" class="celebration" aria-hidden="true"></div>
+      <div id="output" class="output"></div>
+    </section>
+    <section id="daily-summary" class="card">
+      <div class="row" style="justify-content: space-between; align-items: center;">
+        <h2 style="margin: 0; font-size: 1.1rem;">Today's Summary</h2>
+        <button id="show-summary-btn">Show Summary</button>
+      </div>
+      <div id="daily-summary-content" class="output" style="margin-top: 10px;"></div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js?v=20260507-1"></script>
+</body>
+</html>
