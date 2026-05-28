@@ -2,20 +2,20 @@ const CACHE_NAME = "spellquest-v1";
 
 // All static assets to pre-cache on install
 const PRECACHE_ASSETS = [
-  "/",
-  "/index.html",
-  "/app.js",
-  "/styles.css",
-  "/words.json",
-  "/manifest.json",
-  "/icons/icon-72x72.png",
-  "/icons/icon-96x96.png",
-  "/icons/icon-128x128.png",
-  "/icons/icon-144x144.png",
-  "/icons/icon-152x152.png",
-  "/icons/icon-192x192.png",
-  "/icons/icon-384x384.png",
-  "/icons/icon-512x512.png",
+  "/kids-spelling-assistant/",
+  "/kids-spelling-assistant/index.html",
+  "/kids-spelling-assistant/app.js",
+  "/kids-spelling-assistant/styles.css",
+  "/kids-spelling-assistant/words.json",
+  "/kids-spelling-assistant/manifest.json",
+  "/kids-spelling-assistant/icons/icon-72x72.png",
+  "/kids-spelling-assistant/icons/icon-96x96.png",
+  "/kids-spelling-assistant/icons/icon-128x128.png",
+  "/kids-spelling-assistant/icons/icon-144x144.png",
+  "/kids-spelling-assistant/icons/icon-152x152.png",
+  "/kids-spelling-assistant/icons/icon-192x192.png",
+  "/kids-spelling-assistant/icons/icon-384x384.png",
+  "/kids-spelling-assistant/icons/icon-512x512.png",
 ];
 
 // ─── Install ───────────────────────────────────────────────────────────────
