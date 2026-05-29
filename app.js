@@ -2,6 +2,7 @@ import { pipeline } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers
 
 const status = document.getElementById("status");
 const audioBtn = document.getElementById("hear-btn");
+const audioExampleBtn = document.getElementById('hear-ex-btn');
 const nextWordBtn = document.getElementById("next-word-btn");
 const submitAnsBtn = document.getElementById("submit-ans-btn");
 const submitNameBtn = document.getElementById("submit-name-btn");
@@ -28,6 +29,7 @@ async function loadWordsForGrade(grade) {
       word: w.word,
       phonicPattern: w.phonicPattern,
       memoryTip: w.memoryTip,
+      sampleUsage: w.sampleUsage,
     }));
 }
 
@@ -200,6 +202,7 @@ submitNameBtn.onclick = async () => {
     : `No words found for grade ${grade}.`;
   audioBtn.disabled = words.length === 0;
   nextWordBtn.disabled = words.length === 0;
+  audioExampleBtn.disabled = words.length === 0;
   currentWordObj = null;
   childInput.focus();
 };
@@ -214,6 +217,10 @@ audioBtn.onclick = () => {
   speakWord(currentWordObj.word);
   childInput.focus();
 };
+
+audioExampleBtn.onclick = () => {
+  speakWord(currentWordObj.sampleUsage);
+}
 
 nextWordBtn.onclick = () => {
   if (!words.length) {
