@@ -21,6 +21,11 @@ let grade = 5;
 let session = loadTodaySession(grade);
 let words = [];
 
+childInput.setAttribute("readonly", "true");
+childInput.addEventListener("focus", () => {
+  childInput.removeAttribute("readonly");
+});
+
 async function loadWordsForGrade(grade) {
   const all = await fetch("words.json").then((r) => r.json());
   return all
