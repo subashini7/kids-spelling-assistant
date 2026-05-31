@@ -5,7 +5,6 @@ const audioBtn        = document.getElementById("hear-btn");
 const audioExampleBtn = document.getElementById("hear-ex-btn");
 const nextWordBtn     = document.getElementById("next-word-btn");
 const submitAnsBtn    = document.getElementById("submit-ans-btn");
-const startBtn        = document.getElementById("start-btn");
 const grade1Btn       = document.getElementById("grade-1-btn");
 const grade5Btn       = document.getElementById("grade-5-btn");
 const childInput      = document.getElementById("child-input");
@@ -73,31 +72,35 @@ const CATEGORY_HINTS = {
   "short-a": "cat · bat · sad",          "short-e": "bed · hen · pet",
   "short-i": "sit · big · pin",          "short-o": "hop · fog · pop",
   "short-u": "bug · run · cup",
-  "long-a-silent-e": "cake · whale · late",
-  "long-a-ai": "rain · snail · wait",    "long-a-ay": "play · say · way",
-  "long-e-ee": "tree · feet · see",      "long-e-ea": "leaf · read · eat",
-  "long-i-silent-e": "bike · ride · time",
-  "long-i-ie": "pie · tie · lie",        "long-i-y": "fly · cry · sky",
-  "long-o-silent-e": "bone · nose · rose","long-o-oa": "boat · goat · road",
-  "oo-sound": "moon · look · clue",
+  "long-a-silent-e": "cake · whale · late — silent e at the end makes the vowel say its name",
+  "long-a-ai": "rain · snail · wait — when two vowels go walking, the first one does the talking",
+  "long-a-ay": "play · say · way — ay usually comes at the end of a word",
+  "long-e-ee": "tree · feet · see — when two vowels go walking, the first one does the talking",
+  "long-e-ea": "leaf · read · eat — when two vowels go walking, the first one does the talking",
+  "long-i-silent-e": "bike · ride · time — silent e at the end makes the vowel say its name",
+  "long-i-ie": "pie · tie · lie",        "long-i-y": "fly · cry · sky — y at the end of a word says long i",
+  "long-o-silent-e": "bone · nose · rose — silent e at the end makes the vowel say its name",
+  "long-o-oa": "boat · goat · road — when two vowels go walking, the first one does the talking",
+  "oo-sound": "moon · look · clue — oo has two sounds: long (moon) and short (look)",
   "ou-sound": "out · house · round",     "ow-sound": "cow · down · now",
   "th-digraph": "this · three · with",   "wh-digraph": "when · where · why",
   "consonant-blends": "snap · clam · press",
-  "r-controlled": "car · her · bird",    "sight-words": "said · was · because",
-  "ie-ei-rule": "beLIEve · rEIceive — i before e except after c",
-  "plural-ies-ves": "city→cities · knife→knives",
-  "gh-ght-pattern": "night · thought · caught",
-  "silent-letters": "knife · gnome · wreck",
-  "doubling-rule": "run→run·ning · stop→stop·ped · begin→begin·ning",
-  "no-double-rule": "sleep→sleeping · arrest→arrested · hap·pen→happened",
-  "suffix-tion-sion": "nation · tension · question",
+  "r-controlled": "car · her · bird — r after a vowel changes its sound: ar, er, ir, or, ur",
+  "sight-words": "said · was · because",
+  "ie-ei-rule": "beLIEve · recEIve — i before e except after c",
+  "plural-ies-ves": "city→cities · knife→knives — consonant+y → -ies · -f or -fe → -ves",
+  "gh-ght-pattern": "night · thought · caught — gh is silent in -igh, -aught, -ought patterns",
+  "silent-letters": "knife · gnome · wreck — kn- (k silent) · gn- (g silent) · wr- (w silent) · -mb (b silent)",
+  "doubling-rule": "run→running · stop→stopped · begin→beginning — short stressed vowel + 1 consonant at the end? double it",
+  "no-double-rule": "sleep→sleeping · arrest→arrested · happen→happened — two vowels, two consonants, or unstressed ending: don't double",
+  "suffix-tion-sion": "nation · tension · question — no reliable rule; memorise each word",
   "suffix-ous-ious": "famous · delicious · various",
   "suffix-ness-ful-less": "kindness · movement · useless",
-  "prefix-words": "re- · un- · dis- · mis-",
-  "soft-c-g": "centre · gentle · giant",
+  "prefix-words": "re- · un- · dis- · mis- — re=again · un=not · dis=opposite · mis=wrongly",
+  "soft-c-g": "centre · gentle · giant — c or g before e, i, or y → soft sound: c→s, g→j",
   "double-consonant": "address · mirror · beginning",
   "vowel-teams": "could · journey · beautiful",
-  "consonant-patterns": "phone · watch · cheer",
+  "consonant-patterns": "phone · watch · cheer — ph makes f sound · tch comes after a short vowel",
   "homophones": "steal/steel · weather/whether",
   "math-science": "fraction · element · planet",
   "general-spelling": "mixed vocabulary practice",
@@ -176,22 +179,51 @@ function switchTab(name) {
 tabBtnPractice.onclick = () => switchTab("practice");
 tabBtnLearn.onclick    = () => switchTab("learn");
 
+// ─── Start practice (loads words for current grade/difficulty/filter) ─────────
+async function startPractice() {
+  session = loadTodaySession(grade);
+  masteredWords = loadMasteredSet(grade);
+
+  if (categoryFilter) {
+    statusEl.innerText = `Loading "${CATEGORY_LABELS[categoryFilter] || categoryFilter}"...`;
+    words = await loadWordsForGrade(grade, difficulty, categoryFilter);
+  } else {
+    statusEl.innerText = `Loading grade ${grade}, level ${difficulty}...`;
+    words = await loadWordsForGrade(grade, difficulty, null);
+  }
+
+  const label = categoryFilter
+    ? `"${CATEGORY_LABELS[categoryFilter] || categoryFilter}"`
+    : `grade ${grade}, level ${difficulty}`;
+  statusEl.innerText = words.length
+    ? `Loaded ${words.length} words (${label}).`
+    : `No words found for ${label}.`;
+
+  setGameBtnsDisabled(words.length === 0);
+  currentWordObj = null;
+  output.innerText = words.length
+    ? `Grade ${grade} ready! Click "Next word" to begin.`
+    : `No words found. Try a different level or category.`;
+  childInput.focus();
+  buildLearnTab(grade);
+}
+
 // ─── Grade selector ──────────────────────────────────────────────────────────
-function selectGrade(g) {
+async function selectGrade(g) {
   grade = g;
-  masteredWords = loadMasteredSet(g);
   grade1Btn.classList.toggle("is-active", g === 1);
   grade5Btn.classList.toggle("is-active", g === 5);
+  await startPractice();
 }
 grade1Btn.onclick = () => selectGrade(1);
 grade5Btn.onclick = () => selectGrade(5);
 
 // ─── Difficulty stepper ──────────────────────────────────────────────────────
 diffDecBtn.onclick = () => {
-  if (difficulty > 1) { difficulty -= 1; diffDisplay.textContent = difficulty; }
+  if (difficulty > 1) { difficulty -= 1; diffDisplay.textContent = difficulty; startPractice(); }
 };
 diffIncBtn.onclick = () => {
-  if (difficulty < 5) { difficulty += 1; diffDisplay.textContent = difficulty; }
+  if (difficulty < 5) { difficulty += 1; diffDisplay.textContent = difficulty; startPractice(); }
 };
 
 // ─── Filter bar ──────────────────────────────────────────────────────────────
@@ -421,16 +453,11 @@ async function buildLearnTab(g) {
     const catWords = byCategory[cat];
     const label = CATEGORY_LABELS[cat] || cat;
     const hint  = CATEGORY_HINTS[cat] || "";
-    const examples = catWords
-      .sort((a, b) => a.difficulty - b.difficulty)
-      .slice(0, 2)
-      .map((w) => w.word);
     const card = document.createElement("div");
     card.className = "cat-card";
     card.innerHTML = `
       <div class="cat-title">${label}</div>
       <div class="cat-hint">${hint}</div>
-      <div class="cat-examples">${examples.map((w) => `<span class="cat-word">${w}</span>`).join("")}</div>
       <div class="cat-count">${catWords.length} word${catWords.length !== 1 ? "s" : ""}</div>
       <button class="cat-btn" data-category="${cat}" type="button">Practice →</button>
     `;
@@ -473,34 +500,6 @@ exportMasteredBtn.onclick = async () => {
 };
 
 // ─── Event handlers ───────────────────────────────────────────────────────────
-startBtn.onclick = async () => {
-  session = loadTodaySession(grade);
-  masteredWords = loadMasteredSet(grade); // refresh in case it changed
-
-  if (categoryFilter) {
-    statusEl.innerText = `Loading "${CATEGORY_LABELS[categoryFilter] || categoryFilter}"...`;
-    words = await loadWordsForGrade(grade, difficulty, categoryFilter);
-  } else {
-    statusEl.innerText = `Loading grade ${grade}, level ${difficulty}...`;
-    words = await loadWordsForGrade(grade, difficulty, null);
-  }
-
-  const label = categoryFilter
-    ? `"${CATEGORY_LABELS[categoryFilter] || categoryFilter}"`
-    : `grade ${grade}, level ${difficulty}`;
-  statusEl.innerText = words.length
-    ? `Loaded ${words.length} words (${label}).`
-    : `No words found for ${label}.`;
-
-  setGameBtnsDisabled(words.length === 0);
-  currentWordObj = null;
-  output.innerText = words.length
-    ? `Grade ${grade} ready! Click "Next word" to begin.`
-    : `No words found. Try a different level or category.`;
-  childInput.focus();
-  buildLearnTab(grade);
-};
-
 audioBtn.onclick = () => {
   if (!currentWordObj) { output.innerText = 'Click "Next word" first.'; childInput.focus(); return; }
   output.innerText = "Listening again...";
@@ -558,11 +557,7 @@ childInput.addEventListener("keydown", (e) => {
 
 // ─── Initial load ─────────────────────────────────────────────────────────────
 try {
-  words = await loadWordsForGrade(grade, difficulty, null);
-  statusEl.innerText = words.length
-    ? `Loaded ${words.length} words. Select grade and click Start.`
-    : `No words found for grade ${grade}, level ${difficulty}.`;
-  setGameBtnsDisabled(words.length === 0);
+  await startPractice();
 } catch (e) {
   statusEl.innerText = `Error loading words: ${e.message}`;
 }

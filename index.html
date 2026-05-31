@@ -22,28 +22,27 @@
       <button class="tab-btn" id="tab-btn-learn" type="button">Learn</button>
     </nav>
 
+    <section class="card">
+      <label>Select Grade and Level</label>
+      <div class="row">
+        <div class="grade-selector">
+          <button type="button" id="grade-1-btn" class="grade-btn">Grade 1</button>
+          <button type="button" id="grade-5-btn" class="grade-btn is-active">Grade 5</button>
+        </div>
+        <div class="difficulty-stepper" title="Word difficulty level (1 = easiest, 5 = hardest)">
+          <span class="diff-label">Level</span>
+          <button type="button" id="diff-dec" aria-label="Decrease difficulty">−</button>
+          <span id="diff-value" aria-live="polite">2</span>
+          <button type="button" id="diff-inc" aria-label="Increase difficulty">+</button>
+        </div>
+      </div>
+    </section>
+
     <div id="tab-practice">
       <div id="filter-bar" class="filter-bar" hidden>
         Practicing: <strong id="filter-label"></strong>
         <button id="clear-filter-btn" type="button">All words</button>
       </div>
-
-      <section class="card">
-        <label>Select grade</label>
-        <div class="row">
-          <div class="grade-selector">
-            <button type="button" id="grade-1-btn" class="grade-btn">Grade 1</button>
-            <button type="button" id="grade-5-btn" class="grade-btn is-active">Grade 5</button>
-          </div>
-          <div class="difficulty-stepper" title="Word difficulty level (1 = easiest, 5 = hardest)">
-            <span class="diff-label">Level</span>
-            <button type="button" id="diff-dec" aria-label="Decrease difficulty">−</button>
-            <span id="diff-value" aria-live="polite">2</span>
-            <button type="button" id="diff-inc" aria-label="Increase difficulty">+</button>
-          </div>
-          <button id="start-btn">Start</button>
-        </div>
-      </section>
 
       <section id="game-container" class="card">
         <div class="row">
@@ -79,7 +78,7 @@
     </div>
 
     <div id="tab-learn" hidden>
-      <p id="learn-prompt" class="learn-prompt">Select a grade and click <em>Start</em> on the Practice tab to see your word categories.</p>
+      <p id="learn-prompt" class="learn-prompt">Select a grade above to see your word categories.</p>
       <div id="cat-grid" class="cat-grid"></div>
     </div>
   </main>
