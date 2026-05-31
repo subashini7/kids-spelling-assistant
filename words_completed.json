@@ -602,5 +602,233 @@
     "memoryTip": "SAY \u2014 AY vowel team",
     "difficulty": 1,
     "sampleUsage": "What did you say?"
+  },
+   {
+    "word": "animal",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "animal (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "The lion is a wild animal."
+  },
+  {
+    "word": "he'll",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "hel",
+    "memoryTip": "Double L in the middle of he'll",
+    "difficulty": 1,
+    "sampleUsage": "I think he'll join our team."
+  },
+  {
+    "word": "he's",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "hes (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "He's reading a great book today."
+  },
+  {
+    "word": "odd",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "od",
+    "memoryTip": "Double D in the middle of odd",
+    "difficulty": 1,
+    "sampleUsage": "Three is an odd number today."
+  },
+  {
+    "word": "perfect",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "perfect (omitted ending)",
+    "memoryTip": "PER + FECT \u2014 perfectly spelled",
+    "difficulty": 2,
+    "sampleUsage": "She got a perfect test score."
+  },
+  {
+    "word": "music",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "music (omitted ending)",
+    "memoryTip": "MUS + IC.",
+    "difficulty": 1,
+    "sampleUsage": "Listen to the soft music."
+  },
+  {
+    "word": "jungle",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "jungle (omitted ending)",
+    "memoryTip": "JUNGLE ends in LE.",
+    "difficulty": 1,
+    "sampleUsage": "Monkeys live inside the deep jungle."
+  },
+  {
+    "word": "distance",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "distense",
+    "memoryTip": "DIS + TANCE \u2014 ends in ANCE not ENCE",
+    "difficulty": 2,
+    "sampleUsage": "We walked a great distance to school."
+  },
+  {
+    "word": "shout",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "shout (omitted ending)",
+    "memoryTip": "OUT inside the word SHOUT.",
+    "difficulty": 1,
+    "sampleUsage": "Do not shout inside the classroom."
+  },
+  {
+    "word": "world",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "world (omitted ending)",
+    "memoryTip": "The WORLD is round.",
+    "difficulty": 1,
+    "sampleUsage": "We travel around the world."
+  },
+  {
+    "word": "scale",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "scaile",
+    "memoryTip": "SC + ALE \u2014 AY sound with silent E",
+    "difficulty": 1,
+    "sampleUsage": "Weigh the apples on the scale."
+  },
+  {
+    "word": "graph",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "graph (omitted ending)",
+    "memoryTip": "GRAPH ends in PH.",
+    "difficulty": 1,
+    "sampleUsage": "Plot points on the line graph."
+  },
+  {
+    "word": "gold",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "gold (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "She wears a shiny gold ring."
+  },
+  {
+    "word": "zero",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "zero (omitted ending)",
+    "memoryTip": "ZERO ends in O.",
+    "difficulty": 1,
+    "sampleUsage": "The score was exactly zero."
+  },
+  {
+    "word": "felt",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "felt (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "We felt the warm summer breeze."
+  },
+  {
+    "word": "reason",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "reason (omitted ending)",
+    "memoryTip": "Give a REASON to READ.",
+    "difficulty": 1,
+    "sampleUsage": "Tell me your primary reason."
+  },
+
+  {
+    "word": "puzzle",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "puzle",
+    "memoryTip": "PUZZ + LE \u2014 double Z.",
+    "difficulty": 1,
+    "sampleUsage": "Solve the difficult cross word puzzle."
+  },
+  {
+    "word": "season",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "season (omitted ending)",
+    "memoryTip": "SEA inside the summer SEASON.",
+    "difficulty": 1,
+    "sampleUsage": "Winter is my favorite season."
+  },
+
+  {
+    "word": "rather",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "rather (omitted ending)",
+    "memoryTip": "RATH + ER.",
+    "difficulty": 1,
+    "sampleUsage": "I would rather stay inside."
+  },
+
+  {
+    "word": "radio",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "radio (omitted ending)",
+    "memoryTip": "RAD + I + O.",
+    "difficulty": 1,
+    "sampleUsage": "Listen to songs on radio."
+  },
+  {
+    "word": "oxygen",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "oxygen (omitted ending)",
+    "memoryTip": "OXY + GEN.",
+    "difficulty": 1,
+    "sampleUsage": "Humans need oxygen to breathe."
+  },
+  {
+    "word": "false",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "false (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Is the sentence true or false?"
+  },
+  {
+    "word": "button",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "buton",
+    "memoryTip": "BUTTon has a double T like two buttons",
+    "difficulty": 1,
+    "sampleUsage": "Press the red button to start."
+  },
+  {
+    "word": "mayor",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "mayor (omitted ending)",
+    "memoryTip": "MAY + OR \u2014 town mayor.",
+    "difficulty": 1,
+    "sampleUsage": "The mayor gave a speech."
+  },
+  {
+    "word": "enough",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "enouh",
+    "memoryTip": "ENOUGH \u2014 EN + OUG + H",
+    "difficulty": 2,
+    "sampleUsage": "We have enough food for everyone."
   }
 ]
