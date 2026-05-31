@@ -249,13 +249,17 @@ button:disabled {
   border-color: transparent;
 }
 
-.tab-btn.is-active {
+.tab-btn.is-active,
+.tab-btn.is-active:hover:not(:disabled) {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
+  cursor: default;
 }
 
 /* ─── Tab panes ───────────────────────────────────────────────────────────── */
+[hidden] { display: none !important; }
+
 #tab-practice,
 #tab-learn {
   display: grid;
