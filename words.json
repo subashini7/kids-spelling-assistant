@@ -5886,15 +5886,6 @@
     "sampleUsage": "A giraffe has a very long neck."
   },
   {
-    "word": "a",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ae",
-    "memoryTip": "Just the letter A \u2014 easy!",
-    "difficulty": 1,
-    "sampleUsage": "I have a red apple."
-  },
-  {
     "word": "all",
     "grade": 1,
     "phonicPattern": "double letter",
@@ -5903,33 +5894,8 @@
     "difficulty": 1,
     "sampleUsage": "All the kids played outside."
   },
-  {
-    "word": "am",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ame",
-    "memoryTip": "I AM \u2014 just 2 letters",
-    "difficulty": 1,
-    "sampleUsage": "I am happy today."
-  },
-  {
-    "word": "an",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ane",
-    "memoryTip": "AN apple \u2014 A + N",
-    "difficulty": 1,
-    "sampleUsage": "She has an umbrella."
-  },
-  {
-    "word": "and",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "aad",
-    "memoryTip": "AND \u2014 A + N + D",
-    "difficulty": 1,
-    "sampleUsage": "I like cats and dogs."
-  },
+ 
+  
   {
     "word": "are",
     "grade": 1,
@@ -6118,24 +6084,6 @@
     "memoryTip": "BONE \u2014 silent E makes O say its name",
     "difficulty": 2,
     "sampleUsage": "The dog buried his bone."
-  },
-  {
-    "word": "box",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "bax",
-    "memoryTip": "BOX \u2014 B + O + X",
-    "difficulty": 1,
-    "sampleUsage": "Put the toys in the box."
-  },
-  {
-    "word": "boy",
-    "grade": 1,
-    "phonicPattern": "vowel team",
-    "commonMistake": "bay",
-    "memoryTip": "BOY \u2014 OY vowel team",
-    "difficulty": 1,
-    "sampleUsage": "The boy kicked the ball."
   },
   {
     "word": "brown",
@@ -6425,15 +6373,7 @@
     "difficulty": 1,
     "sampleUsage": "The fog made it hard to see."
   },
-  {
-    "word": "for",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "far",
-    "memoryTip": "FOR you \u2014 F + O + R",
-    "difficulty": 1,
-    "sampleUsage": "I got a gift for my mom."
-  },
+  
   {
     "word": "four",
     "grade": 1,
@@ -6543,15 +6483,6 @@
     "sampleUsage": "Hold my hand when we cross the street."
   },
   {
-    "word": "has",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "hes",
-    "memoryTip": "HAS \u2014 H + A + S",
-    "difficulty": 1,
-    "sampleUsage": "He has a new backpack."
-  },
-  {
     "word": "have",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -6559,15 +6490,6 @@
     "memoryTip": "HAVE \u2014 silent E at the end",
     "difficulty": 2,
     "sampleUsage": "I have two sisters."
-  },
-  {
-    "word": "he",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "hee",
-    "memoryTip": "HE \u2014 just H + E",
-    "difficulty": 1,
-    "sampleUsage": "He is my best friend."
   },
   {
     "word": "hen",
@@ -6651,15 +6573,6 @@
     "sampleUsage": "I hope we can go to the beach."
   },
   {
-    "word": "hot",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "hat",
-    "memoryTip": "HOT \u2014 H + O + T",
-    "difficulty": 1,
-    "sampleUsage": "The soup is too hot to eat."
-  },
-  {
     "word": "how",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -6678,33 +6591,6 @@
     "sampleUsage": "She gave her mom a big hug."
   },
   {
-    "word": "i",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ie",
-    "memoryTip": "Say it slowly, spell what you hear",
-    "difficulty": 1,
-    "sampleUsage": "I love going to the library."
-  },
-  {
-    "word": "if",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ife",
-    "memoryTip": "IF \u2014 just I + F",
-    "difficulty": 1,
-    "sampleUsage": "We can swim if the sun comes out."
-  },
-  {
-    "word": "in",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ine",
-    "memoryTip": "IN \u2014 just I + N",
-    "difficulty": 1,
-    "sampleUsage": "The cat is in the box."
-  },
-  {
     "word": "into",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -6712,24 +6598,6 @@
     "memoryTip": "IN + TO \u2014 two small words",
     "difficulty": 2,
     "sampleUsage": "She jumped into the pool."
-  },
-  {
-    "word": "is",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ise",
-    "memoryTip": "IS \u2014 just I + S",
-    "difficulty": 1,
-    "sampleUsage": "The sky is blue."
-  },
-  {
-    "word": "it",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ite",
-    "memoryTip": "IT \u2014 just I + T",
-    "difficulty": 1,
-    "sampleUsage": "It is raining outside."
   },
   {
     "word": "jet",
@@ -6741,15 +6609,6 @@
     "sampleUsage": "The jet flew high in the sky."
   },
   {
-    "word": "job",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "jab",
-    "memoryTip": "JOB \u2014 J + O + B",
-    "difficulty": 1,
-    "sampleUsage": "His job is to feed the dog."
-  },
-  {
     "word": "jump",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -6757,15 +6616,6 @@
     "memoryTip": "JUMP \u2014 J + U + M + P",
     "difficulty": 2,
     "sampleUsage": "Can you jump over the puddle?"
-  },
-  {
-    "word": "kid",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "kad",
-    "memoryTip": "KID \u2014 K + I + D",
-    "difficulty": 1,
-    "sampleUsage": "Every kid in class got a sticker."
   },
   {
     "word": "land",
@@ -6858,15 +6708,6 @@
     "sampleUsage": "Let's make a card for grandma."
   },
   {
-    "word": "man",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "men",
-    "memoryTip": "MAN \u2014 M + A + N",
-    "difficulty": 1,
-    "sampleUsage": "The man walked his dog in the park."
-  },
-  {
     "word": "many",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -6874,15 +6715,6 @@
     "memoryTip": "MANY \u2014 M + A + N + Y",
     "difficulty": 2,
     "sampleUsage": "How many apples are in the bowl?"
-  },
-  {
-    "word": "map",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "mep",
-    "memoryTip": "MAP \u2014 M + A + P",
-    "difficulty": 1,
-    "sampleUsage": "We used a map to find the trail."
   },
   {
     "word": "may",
@@ -6911,24 +6743,7 @@
     "difficulty": 1,
     "sampleUsage": "The men fixed the road."
   },
-  {
-    "word": "mom",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "mam",
-    "memoryTip": "MOM \u2014 M + O + M, same backwards",
-    "difficulty": 1,
-    "sampleUsage": "My mom reads me a story each night."
-  },
-  {
-    "word": "mop",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "map",
-    "memoryTip": "MOP \u2014 M + O + P",
-    "difficulty": 1,
-    "sampleUsage": "She used a mop to clean the floor."
-  },
+ 
   {
     "word": "more",
     "grade": 1,
@@ -6937,24 +6752,6 @@
     "memoryTip": "MORE \u2014 silent E at the end",
     "difficulty": 2,
     "sampleUsage": "Can I have more juice, please?"
-  },
-  {
-    "word": "my",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "mye",
-    "memoryTip": "MY \u2014 just M + Y",
-    "difficulty": 1,
-    "sampleUsage": "This is my favorite book."
-  },
-  {
-    "word": "name",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "namee",
-    "memoryTip": "NAME \u2014 silent E makes A say its name",
-    "difficulty": 2,
-    "sampleUsage": "My name is spelled on my backpack."
   },
   {
     "word": "need",
@@ -6975,15 +6772,6 @@
     "sampleUsage": "A bird built a nest in the tree."
   },
   {
-    "word": "no",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "noe",
-    "memoryTip": "NO \u2014 just N + O",
-    "difficulty": 1,
-    "sampleUsage": "No, thank you \u2014 I am full."
-  },
-  {
     "word": "nose",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -6993,33 +6781,6 @@
     "sampleUsage": "A cold makes my nose runny."
   },
   {
-    "word": "not",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "nat",
-    "memoryTip": "NOT \u2014 N + O + T",
-    "difficulty": 1,
-    "sampleUsage": "I am not ready yet."
-  },
-  {
-    "word": "of",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ofe",
-    "memoryTip": "OF \u2014 just O + F, sounds like UV",
-    "difficulty": 1,
-    "sampleUsage": "I drank a cup of milk."
-  },
-  {
-    "word": "on",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "one",
-    "memoryTip": "ON \u2014 just O + N",
-    "difficulty": 1,
-    "sampleUsage": "The book is on the table."
-  },
-  {
     "word": "one",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -7027,15 +6788,6 @@
     "memoryTip": "ONE \u2014 sounds like WUN, tricky!",
     "difficulty": 1,
     "sampleUsage": "I have one brother."
-  },
-  {
-    "word": "or",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ore",
-    "memoryTip": "OR \u2014 just O + R",
-    "difficulty": 1,
-    "sampleUsage": "Would you like milk or juice?"
   },
   {
     "word": "over",
@@ -7137,24 +6889,6 @@
     "sampleUsage": "Use a rag to wipe the table."
   },
   {
-    "word": "ran",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ren",
-    "memoryTip": "RAN \u2014 R + A + N",
-    "difficulty": 1,
-    "sampleUsage": "She ran to catch the bus."
-  },
-  {
-    "word": "red",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "rad",
-    "memoryTip": "RED \u2014 R + E + D",
-    "difficulty": 1,
-    "sampleUsage": "I wore a red shirt today."
-  },
-  {
     "word": "ride",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -7209,15 +6943,6 @@
     "sampleUsage": "We run laps in gym class."
   },
   {
-    "word": "sad",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "sed",
-    "memoryTip": "SAD \u2014 S + A + D",
-    "difficulty": 1,
-    "sampleUsage": "She felt sad when her balloon flew away."
-  },
-  {
     "word": "sand",
     "grade": 1,
     "phonicPattern": "sounds-like",
@@ -7261,15 +6986,6 @@
     "memoryTip": "SEE \u2014 double E vowel team",
     "difficulty": 1,
     "sampleUsage": "I can see the mountains from here."
-  },
-  {
-    "word": "she",
-    "grade": 1,
-    "phonicPattern": "consonant blend",
-    "commonMistake": "sae",
-    "memoryTip": "SHE \u2014 SH blend + E",
-    "difficulty": 1,
-    "sampleUsage": "She brought cupcakes for the whole class."
   },
   {
     "word": "side",
@@ -7316,15 +7032,7 @@
     "difficulty": 2,
     "sampleUsage": "The kids loved the big slide at the park."
   },
-  {
-    "word": "so",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "soe",
-    "memoryTip": "SO \u2014 just S + O",
-    "difficulty": 1,
-    "sampleUsage": "I was so excited for my birthday."
-  },
+ 
   {
     "word": "some",
     "grade": 1,
@@ -7360,33 +7068,6 @@
     "memoryTip": "STOP \u2014 ST blend + OP",
     "difficulty": 2,
     "sampleUsage": "The car slowed down to stop at the light."
-  },
-  {
-    "word": "sun",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "san",
-    "memoryTip": "SUN \u2014 S + U + N",
-    "difficulty": 1,
-    "sampleUsage": "The sun rose over the hills."
-  },
-  {
-    "word": "tag",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "teg",
-    "memoryTip": "TAG \u2014 T + A + G",
-    "difficulty": 1,
-    "sampleUsage": "We played tag at recess."
-  },
-  {
-    "word": "tap",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "tep",
-    "memoryTip": "TAP \u2014 T + A + P",
-    "difficulty": 1,
-    "sampleUsage": "Tap your foot to the music."
   },
   {
     "word": "tell",
@@ -7425,15 +7106,6 @@
     "sampleUsage": "Is that your lunchbox?"
   },
   {
-    "word": "the",
-    "grade": 1,
-    "phonicPattern": "consonant blend",
-    "commonMistake": "tae",
-    "memoryTip": "THE \u2014 TH blend + E",
-    "difficulty": 1,
-    "sampleUsage": "The dog ran across the yard."
-  },
-  {
     "word": "then",
     "grade": 1,
     "phonicPattern": "consonant blend",
@@ -7441,15 +7113,6 @@
     "memoryTip": "THEN \u2014 TH blend + EN",
     "difficulty": 2,
     "sampleUsage": "We ate lunch, then went outside."
-  },
-  {
-    "word": "they",
-    "grade": 1,
-    "phonicPattern": "consonant blend",
-    "commonMistake": "theye",
-    "memoryTip": "THEY \u2014 TH blend + EY",
-    "difficulty": 2,
-    "sampleUsage": "They are coming to the party."
   },
   {
     "word": "thin",
@@ -7495,24 +7158,6 @@
     "memoryTip": "TIP \u2014 T + I + P",
     "difficulty": 1,
     "sampleUsage": "The tip of the pencil broke."
-  },
-  {
-    "word": "to",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "toe",
-    "memoryTip": "TO \u2014 just T + O",
-    "difficulty": 1,
-    "sampleUsage": "I walked to the library."
-  },
-  {
-    "word": "top",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "tap",
-    "memoryTip": "TOP \u2014 T + O + P",
-    "difficulty": 1,
-    "sampleUsage": "I put the star on the top of the tree."
   },
   {
     "word": "tree",
@@ -7667,60 +7312,7 @@
     "difficulty": 3,
     "sampleUsage": "The sun is big and yellow."
   },
-  {
-    "word": "you",
-    "grade": 1,
-    "phonicPattern": "vowel team",
-    "commonMistake": "yau",
-    "memoryTip": "YOU \u2014 Y + O + U, special vowel team",
-    "difficulty": 1,
-    "sampleUsage": "Can you help me, please?"
-  },
-  {
-    "word": "zip",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "zap",
-    "memoryTip": "ZIP \u2014 Z + I + P",
-    "difficulty": 1,
-    "sampleUsage": "Zip up your coat \u2014 it is cold!"
-  },
-  {
-    "word": "ask",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "aak",
-    "memoryTip": "ASK \u2014 A + S + K",
-    "difficulty": 1,
-    "sampleUsage": "Don't be afraid to ask for help."
-  },
-  {
-    "word": "fly",
-    "grade": 1,
-    "phonicPattern": "consonant blend",
-    "commonMistake": "fay",
-    "memoryTip": "FLY \u2014 FL blend + Y",
-    "difficulty": 1,
-    "sampleUsage": "We watched the kite fly in the wind."
-  },
-  {
-    "word": "him",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "ham",
-    "memoryTip": "HIM \u2014 H + I + M",
-    "difficulty": 1,
-    "sampleUsage": "I gave him a high five."
-  },
-  {
-    "word": "old",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "oad",
-    "memoryTip": "OLD \u2014 O + L + D",
-    "difficulty": 1,
-    "sampleUsage": "This tree is very old."
-  },
+ 
   {
     "word": "them",
     "grade": 1,
