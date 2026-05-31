@@ -21,6 +21,12 @@
       <label id="title" for="child-name">Enter your name</label>
       <div class="row">
         <input type="text" id="child-name" spellcheck="false" placeholder="Name">
+        <div class="difficulty-stepper" title="Word difficulty level (1 = easiest, 5 = hardest)">
+          <span class="diff-label">Level</span>
+          <button type="button" id="diff-dec" aria-label="Decrease difficulty">−</button>
+          <span id="diff-value" aria-live="polite">2</span>
+          <button type="button" id="diff-inc" aria-label="Increase difficulty">+</button>
+        </div>
         <button id="submit-name-btn">Start</button>
       </div>
     </section>

@@ -1,6 +1,5 @@
-import { pipeline } from "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1/dist/transformers.min.js";
 
-const status = document.getElementById("status");
+const statusEl = document.getElementById("status");
 const audioBtn = document.getElementById("hear-btn");
 const audioExampleBtn = document.getElementById('hear-ex-btn');
 const nextWordBtn = document.getElementById("next-word-btn");
@@ -12,24 +11,35 @@ const output = document.getElementById("output");
 const celebration = document.getElementById("celebration");
 const showSummaryBtn = document.getElementById("show-summary-btn");
 const dailySummaryContent = document.getElementById("daily-summary-content");
+const diffDecBtn = document.getElementById("diff-dec");
+const diffIncBtn = document.getElementById("diff-inc");
+const diffDisplay = document.getElementById("diff-value");
 
 const SESSION_KEY = (g) =>
   `spellquest_session_g${g}_${new Date().toISOString().slice(0, 10)}`;
 let currentWordObj = null;
 let lastWord = null;
 let grade = 5;
+let difficulty = 2;
 let session = loadTodaySession(grade);
 let words = [];
+
+diffDecBtn.onclick = () => {
+  if (difficulty > 1) { difficulty -= 1; diffDisplay.textContent = difficulty; }
+};
+diffIncBtn.onclick = () => {
+  if (difficulty < 5) { difficulty += 1; diffDisplay.textContent = difficulty; }
+};
 
 childInput.setAttribute("readonly", "true");
 childInput.addEventListener("focus", () => {
   childInput.removeAttribute("readonly");
 });
 
-async function loadWordsForGrade(grade) {
+async function loadWordsForGrade(grade, difficulty) {
   const all = await fetch("words.json").then((r) => r.json());
   return all
-    .filter((w) => Number(w.grade) === Number(grade))
+    .filter((w) => Number(w.grade) === Number(grade) && Number(w.difficulty) === Number(difficulty))
     .map((w) => ({
       word: w.word,
       phonicPattern: w.phonicPattern,
@@ -200,11 +210,11 @@ submitNameBtn.onclick = async () => {
   }
   // Load or start a fresh session for this grade
   session = loadTodaySession(grade);
-  status.innerText = `Loading words for grade ${grade}...`;
-  words = await loadWordsForGrade(grade);
-  status.innerText = words.length
-    ? `Loaded ${words.length} words for grade ${grade}.`
-    : `No words found for grade ${grade}.`;
+  statusEl.innerText = `Loading words for grade ${grade}, level ${difficulty}...`;
+  words = await loadWordsForGrade(grade, difficulty);
+  statusEl.innerText = words.length
+    ? `Loaded ${words.length} words for grade ${grade}, level ${difficulty}.`
+    : `No words found for grade ${grade}, level ${difficulty}.`;
   audioBtn.disabled = words.length === 0;
   nextWordBtn.disabled = words.length === 0;
   audioExampleBtn.disabled = words.length === 0;
@@ -285,24 +295,24 @@ childInput.addEventListener("keydown", (event) => {
 });
 
 try {
-  words = await loadWordsForGrade(grade);
+  words = await loadWordsForGrade(grade, difficulty);
   if (!words.length) {
-    status.innerText = `No words found for grade ${grade}.`;
+    statusEl.innerText = `No words found for grade ${grade}, level ${difficulty}.`;
   } else {
-    status.innerText = `Loaded ${words.length} words. Ready!`;
+    statusEl.innerText = `Loaded ${words.length} words. Ready!`;
   }
   audioBtn.disabled = words.length === 0;
   nextWordBtn.disabled = words.length === 0;
 } catch (e) {
-  status.innerText = `Error loading words: ${e.message}`;
+  statusEl.innerText = `Error loading words: ${e.message}`;
 }
 
 /* try {
   let generator = null;
   generator = await pipeline("text-generation", "Xenova/TinyLlama-1.1B-Chat-v1.0");
-  status.innerText = "Model loaded. Ready!";
+  statusEl.innerText = "Model loaded. Ready!";
   audioBtn.disabled = false;
 } catch (e) {
-  status.innerText = `Model failed to load: ${e.message}`;
+  statusEl.innerText = `Model failed to load: ${e.message}`;
   audioBtn.disabled = words.length === 0;
 } */
