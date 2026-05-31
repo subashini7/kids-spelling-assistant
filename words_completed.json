@@ -1,7 +1,7 @@
 [
   {
     "word": "i",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ie",
     "memoryTip": "Say it slowly, spell what you hear",
@@ -9,8 +9,44 @@
     "sampleUsage": "I love going to the library."
   },
   {
-    "word": "a",
+    "word": "go",
     "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "goe",
+    "memoryTip": "GO \u2014 just G + O",
+    "difficulty": 1,
+    "sampleUsage": "Let's go to the playground!"
+  },
+  {
+    "word": "came",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "camee",
+    "memoryTip": "CAME \u2014 silent E makes A say its name",
+    "difficulty": 2,
+    "sampleUsage": "She came to my birthday party."
+  },
+  {
+    "word": "pay",
+    "grade": 1,
+    "phonicPattern": "vowel team",
+    "commonMistake": "pa",
+    "memoryTip": "PAY \u2014 AY vowel team",
+    "difficulty": 1,
+    "sampleUsage": "Dad will pay for the pizza."
+  },
+  {
+    "word": "log",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "lag",
+    "memoryTip": "LOG \u2014 L + O + G",
+    "difficulty": 1,
+    "sampleUsage": "We sat on a log by the campfire."
+  },
+  {
+    "word": "a",
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ae",
     "memoryTip": "Just the letter A \u2014 easy!",
@@ -19,7 +55,7 @@
   },
   {
     "word": "an",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ane",
     "memoryTip": "AN apple \u2014 A + N",
@@ -28,7 +64,7 @@
   },
   {
     "word": "and",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "aad",
     "memoryTip": "AND \u2014 A + N + D",
@@ -37,7 +73,7 @@
   },
    {
     "word": "am",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ame",
     "memoryTip": "I AM \u2014 just 2 letters",
@@ -46,7 +82,7 @@
   },
   {
     "word": "my",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "mye",
     "memoryTip": "MY \u2014 just M + Y",
@@ -55,7 +91,7 @@
   },
   {
     "word": "name",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "namee",
     "memoryTip": "NAME \u2014 silent E makes A say its name",
@@ -64,7 +100,7 @@
   },
   {
     "word": "no",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "noe",
     "memoryTip": "NO \u2014 just N + O",
@@ -73,7 +109,7 @@
   },
   {
     "word": "not",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "nat",
     "memoryTip": "NOT \u2014 N + O + T",
@@ -82,7 +118,7 @@
   },
   {
     "word": "of",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ofe",
     "memoryTip": "OF \u2014 just O + F, sounds like UV",
@@ -91,7 +127,7 @@
   },
   {
     "word": "on",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "one",
     "memoryTip": "ON \u2014 just O + N",
@@ -100,7 +136,7 @@
   },
   {
     "word": "or",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ore",
     "memoryTip": "OR \u2014 just O + R",
@@ -109,7 +145,7 @@
   },
   {
     "word": "ran",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ren",
     "memoryTip": "RAN \u2014 R + A + N",
@@ -118,7 +154,7 @@
   },
   {
     "word": "red",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "rad",
     "memoryTip": "RED \u2014 R + E + D",
@@ -127,7 +163,7 @@
   },
   {
     "word": "sad",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "sed",
     "memoryTip": "SAD \u2014 S + A + D",
@@ -136,7 +172,7 @@
   },
   {
     "word": "she",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "consonant blend",
     "commonMistake": "sae",
     "memoryTip": "SHE \u2014 SH blend + E",
@@ -145,7 +181,7 @@
   },
   {
     "word": "he",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "hee",
     "memoryTip": "HE \u2014 just H + E",
@@ -154,7 +190,7 @@
   },
   {
     "word": "hot",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "hat",
     "memoryTip": "HOT \u2014 H + O + T",
@@ -163,7 +199,7 @@
   },
   {
     "word": "if",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ife",
     "memoryTip": "IF \u2014 just I + F",
@@ -172,7 +208,7 @@
   },
   {
     "word": "in",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ine",
     "memoryTip": "IN \u2014 just I + N",
@@ -181,7 +217,7 @@
   },
   {
     "word": "is",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ise",
     "memoryTip": "IS \u2014 just I + S",
@@ -190,7 +226,7 @@
   },
   {
     "word": "it",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ite",
     "memoryTip": "IT \u2014 just I + T",
@@ -199,7 +235,7 @@
   },
    {
     "word": "job",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "jab",
     "memoryTip": "JOB \u2014 J + O + B",
@@ -208,7 +244,7 @@
   },
   {
     "word": "map",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "mep",
     "memoryTip": "MAP \u2014 M + A + P",
@@ -217,7 +253,7 @@
   },
   {
     "word": "man",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "men",
     "memoryTip": "MAN \u2014 M + A + N",
@@ -226,7 +262,7 @@
   },
    {
     "word": "mom",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "mam",
     "memoryTip": "MOM \u2014 M + O + M, same backwards",
@@ -235,7 +271,7 @@
   },
   {
     "word": "mop",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "map",
     "memoryTip": "MOP \u2014 M + O + P",
@@ -244,7 +280,7 @@
   },
    {
     "word": "so",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "soe",
     "memoryTip": "SO \u2014 just S + O",
@@ -253,7 +289,7 @@
   },
   {
     "word": "sun",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "san",
     "memoryTip": "SUN \u2014 S + U + N",
@@ -262,7 +298,7 @@
   },
   {
     "word": "tag",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "teg",
     "memoryTip": "TAG \u2014 T + A + G",
@@ -271,7 +307,7 @@
   },
   {
     "word": "tap",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "tep",
     "memoryTip": "TAP \u2014 T + A + P",
@@ -280,7 +316,7 @@
   },
   {
     "word": "the",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "consonant blend",
     "commonMistake": "tae",
     "memoryTip": "THE \u2014 TH blend + E",
@@ -289,7 +325,7 @@
   },
    {
     "word": "they",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "consonant blend",
     "commonMistake": "theye",
     "memoryTip": "THEY \u2014 TH blend + EY",
@@ -298,7 +334,7 @@
   },
   {
     "word": "to",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "toe",
     "memoryTip": "TO \u2014 just T + O",
@@ -307,7 +343,7 @@
   },
   {
     "word": "top",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "tap",
     "memoryTip": "TOP \u2014 T + O + P",
@@ -316,7 +352,7 @@
   },
   {
     "word": "you",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "vowel team",
     "commonMistake": "yau",
     "memoryTip": "YOU \u2014 Y + O + U, special vowel team",
@@ -325,7 +361,7 @@
   },
   {
     "word": "zip",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "zap",
     "memoryTip": "ZIP \u2014 Z + I + P",
@@ -334,7 +370,7 @@
   },
   {
     "word": "ask",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "aak",
     "memoryTip": "ASK \u2014 A + S + K",
@@ -343,7 +379,7 @@
   },
    {
     "word": "fly",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "consonant blend",
     "commonMistake": "fay",
     "memoryTip": "FLY \u2014 FL blend + Y",
@@ -352,7 +388,7 @@
   },
   {
     "word": "him",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ham",
     "memoryTip": "HIM \u2014 H + I + M",
@@ -361,7 +397,7 @@
   },
   {
     "word": "old",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "oad",
     "memoryTip": "OLD \u2014 O + L + D",
@@ -370,7 +406,7 @@
   },
   {
     "word": "kid",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "kad",
     "memoryTip": "KID \u2014 K + I + D",
@@ -379,7 +415,7 @@
   },
   {
     "word": "has",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "hes",
     "memoryTip": "HAS \u2014 H + A + S",
@@ -388,7 +424,7 @@
   },
   {
     "word": "for",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "far",
     "memoryTip": "FOR you \u2014 F + O + R",
@@ -397,7 +433,7 @@
   },
   {
     "word": "box",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "bax",
     "memoryTip": "BOX \u2014 B + O + X",
@@ -406,7 +442,7 @@
   },
   {
     "word": "boy",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "vowel team",
     "commonMistake": "bay",
     "memoryTip": "BOY \u2014 OY vowel team",
@@ -415,7 +451,7 @@
   },
   {
     "word": "like",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "likee",
     "memoryTip": "LIKE \u2014 silent E makes I say its name",
@@ -424,7 +460,7 @@
   },
    {
     "word": "can",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "cen",
     "memoryTip": "CAN do it \u2014 C + A + N",
@@ -433,7 +469,7 @@
   },
   {
     "word": "see",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "vowel team",
     "commonMistake": "se",
     "memoryTip": "SEE \u2014 double E vowel team",
@@ -442,7 +478,7 @@
   },
   {
     "word": "by",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "bye",
     "memoryTip": "BY \u2014 just B + Y",
@@ -451,7 +487,7 @@
   },
   {
     "word": "at",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ate",
     "memoryTip": "AT home \u2014 A + T",
@@ -460,7 +496,7 @@
   },
   {
     "word": "are",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "aae",
     "memoryTip": "ARE you sure? A + R + E",
@@ -469,7 +505,7 @@
   },
   {
     "word": "do",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "doe",
     "memoryTip": "DO \u2014 D + O",
@@ -478,7 +514,7 @@
   },
   {
     "word": "up",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "upe",
     "memoryTip": "UP \u2014 just U + P",
@@ -487,7 +523,7 @@
   },
    {
     "word": "get",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "gat",
     "memoryTip": "GET \u2014 G + E + T",
@@ -496,7 +532,7 @@
   },
   {
     "word": "had",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "hed",
     "memoryTip": "HAD \u2014 H + A + D",
@@ -505,7 +541,7 @@
   },
   {
     "word": "day",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "vowel team",
     "commonMistake": "da",
     "memoryTip": "DAY \u2014 AY vowel team",
@@ -514,7 +550,7 @@
   },
   {
     "word": "be",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "bee",
     "memoryTip": "BE yourself \u2014 just B + E",
@@ -523,7 +559,7 @@
   },
   {
     "word": "as",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ase",
     "memoryTip": "AS fast as \u2014 A + S",
@@ -532,7 +568,7 @@
   },
   {
     "word": "fun",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "fan",
     "memoryTip": "FUN \u2014 F + U + N",
@@ -542,7 +578,7 @@
    
   {
     "word": "did",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "dad",
     "memoryTip": "DID \u2014 D + I + D",
@@ -551,7 +587,7 @@
   },
   {
     "word": "how",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "haw",
     "memoryTip": "HOW \u2014 H + OW vowel team",
@@ -560,7 +596,7 @@
   },
   {
     "word": "eat",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "vowel team",
     "commonMistake": "et",
     "memoryTip": "EAT \u2014 EA vowel team",
@@ -569,7 +605,7 @@
   },
   {
     "word": "sat",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "set",
     "memoryTip": "SAT \u2014 S + A + T",
@@ -578,7 +614,7 @@
   },
   {
     "word": "run",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "ran",
     "memoryTip": "RUN \u2014 R + U + N",
@@ -587,7 +623,7 @@
   },
   {
     "word": "sit",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "sounds-like",
     "commonMistake": "sat",
     "memoryTip": "SIT \u2014 S + I + T",
@@ -596,16 +632,16 @@
   },
   {
     "word": "say",
-    "grade": 1,
+    "grade": 0,
     "phonicPattern": "vowel team",
     "commonMistake": "sa",
     "memoryTip": "SAY \u2014 AY vowel team",
     "difficulty": 1,
     "sampleUsage": "What did you say?"
   },
-   {
+  { 
     "word": "animal",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "animal (omitted ending)",
     "memoryTip": "Say each syllable slowly when spelling",
@@ -614,7 +650,7 @@
   },
   {
     "word": "he'll",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "double letter",
     "commonMistake": "hel",
     "memoryTip": "Double L in the middle of he'll",
@@ -623,7 +659,7 @@
   },
   {
     "word": "he's",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "hes (omitted ending)",
     "memoryTip": "Say each syllable slowly when spelling",
@@ -632,7 +668,7 @@
   },
   {
     "word": "odd",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "double letter",
     "commonMistake": "od",
     "memoryTip": "Double D in the middle of odd",
@@ -641,7 +677,7 @@
   },
   {
     "word": "perfect",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "perfect (omitted ending)",
     "memoryTip": "PER + FECT \u2014 perfectly spelled",
@@ -650,7 +686,7 @@
   },
   {
     "word": "music",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "music (omitted ending)",
     "memoryTip": "MUS + IC.",
@@ -659,7 +695,7 @@
   },
   {
     "word": "jungle",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "jungle (omitted ending)",
     "memoryTip": "JUNGLE ends in LE.",
@@ -668,7 +704,7 @@
   },
   {
     "word": "distance",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "distense",
     "memoryTip": "DIS + TANCE \u2014 ends in ANCE not ENCE",
@@ -677,7 +713,7 @@
   },
   {
     "word": "shout",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "vowel team",
     "commonMistake": "shout (omitted ending)",
     "memoryTip": "OUT inside the word SHOUT.",
@@ -686,7 +722,7 @@
   },
   {
     "word": "world",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "world (omitted ending)",
     "memoryTip": "The WORLD is round.",
@@ -695,7 +731,7 @@
   },
   {
     "word": "scale",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "vowel team",
     "commonMistake": "scaile",
     "memoryTip": "SC + ALE \u2014 AY sound with silent E",
@@ -704,7 +740,7 @@
   },
   {
     "word": "graph",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "consonant blend",
     "commonMistake": "graph (omitted ending)",
     "memoryTip": "GRAPH ends in PH.",
@@ -713,7 +749,7 @@
   },
   {
     "word": "gold",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "gold (omitted ending)",
     "memoryTip": "Say each syllable slowly when spelling",
@@ -722,7 +758,7 @@
   },
   {
     "word": "zero",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "zero (omitted ending)",
     "memoryTip": "ZERO ends in O.",
@@ -731,7 +767,7 @@
   },
   {
     "word": "felt",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "felt (omitted ending)",
     "memoryTip": "Say each syllable slowly when spelling",
@@ -740,17 +776,16 @@
   },
   {
     "word": "reason",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "vowel team",
     "commonMistake": "reason (omitted ending)",
     "memoryTip": "Give a REASON to READ.",
     "difficulty": 1,
     "sampleUsage": "Tell me your primary reason."
   },
-
   {
     "word": "puzzle",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "double letter",
     "commonMistake": "puzle",
     "memoryTip": "PUZZ + LE \u2014 double Z.",
@@ -759,27 +794,25 @@
   },
   {
     "word": "season",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "vowel team",
     "commonMistake": "season (omitted ending)",
     "memoryTip": "SEA inside the summer SEASON.",
     "difficulty": 1,
     "sampleUsage": "Winter is my favorite season."
   },
-
   {
     "word": "rather",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "rather (omitted ending)",
     "memoryTip": "RATH + ER.",
     "difficulty": 1,
     "sampleUsage": "I would rather stay inside."
   },
-
   {
     "word": "radio",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "radio (omitted ending)",
     "memoryTip": "RAD + I + O.",
@@ -788,7 +821,7 @@
   },
   {
     "word": "oxygen",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "sounds-like",
     "commonMistake": "oxygen (omitted ending)",
     "memoryTip": "OXY + GEN.",
@@ -796,17 +829,8 @@
     "sampleUsage": "Humans need oxygen to breathe."
   },
   {
-    "word": "false",
-    "grade": 5,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "false (omitted ending)",
-    "memoryTip": "Say each syllable slowly when spelling",
-    "difficulty": 1,
-    "sampleUsage": "Is the sentence true or false?"
-  },
-  {
     "word": "button",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "double letter",
     "commonMistake": "buton",
     "memoryTip": "BUTTon has a double T like two buttons",
@@ -815,7 +839,7 @@
   },
   {
     "word": "mayor",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "vowel team",
     "commonMistake": "mayor (omitted ending)",
     "memoryTip": "MAY + OR \u2014 town mayor.",
@@ -824,11 +848,1181 @@
   },
   {
     "word": "enough",
-    "grade": 5,
+    "grade": 4,
     "phonicPattern": "silent letter",
     "commonMistake": "enouh",
     "memoryTip": "ENOUGH \u2014 EN + OUG + H",
     "difficulty": 2,
     "sampleUsage": "We have enough food for everyone."
+  },
+  {
+    "word": "airport",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "airport (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 2,
+    "sampleUsage": "Our plane landed at the airport."
+  },
+  {
+    "word": "alarm",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "alarm (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "The loud alarm woke me up."
+  },
+  {
+    "word": "asleep",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "asleep (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "The tired baby fell fast asleep."
+  },
+  {
+    "word": "become",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "become (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Tadpoles become frogs over time."
+  },
+  {
+    "word": "belong",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "belong (omitted ending)",
+    "memoryTip": "BE + LONG \u2014 you've belonged all LONG",
+    "difficulty": 1,
+    "sampleUsage": "These keys belong to my mother."
+  },
+  {
+    "word": "broke",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "broke (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "He accidentally broke the glass window."
+  },
+  {
+    "word": "broken",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "broken (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "The broken toy can be fixed."
+  },
+  {
+    "word": "catch",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "catch (omitted ending)",
+    "memoryTip": "Blend the consonants at the start together",
+    "difficulty": 1,
+    "sampleUsage": "Throw the ball and catch it."
+  },
+  {
+    "word": "coin",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "coin (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "I found a shiny silver coin."
+  },
+  {
+    "word": "comb",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "cob",
+    "memoryTip": "Silent MB \u2014 write it but don't say it",
+    "difficulty": 1,
+    "sampleUsage": "Use a comb for your hair."
+  },
+  {
+    "word": "copy",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "copy (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Do not copy my homework answers."
+  },
+  {
+    "word": "corner",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "corner (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Turn left at the next corner."
+  },
+  {
+    "word": "couch",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "couch (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "Sit down on the soft couch."
+  },
+  {
+    "word": "cover",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "cover (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Put a cover over the food."
+  },
+  {
+    "word": "crayon",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "crayon (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "I drew with a red crayon."
+  },
+  {
+    "word": "crow",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "crow (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "A black crow sat up high."
+  },
+  {
+    "word": "dear",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "dear (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "She is a very dear friend."
+  },
+  {
+    "word": "divide",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "divide (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Divide the apple into four slices."
+  },
+  {
+    "word": "earth",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "earth (omitted ending)",
+    "memoryTip": "EAR + TH \u2014 EARth, listen to the earth",
+    "difficulty": 1,
+    "sampleUsage": "Plants grow well in healthy earth."
+  },
+  {
+    "word": "fear",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "fear (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "Do not let fear stop you."
+  },
+  {
+    "word": "few",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "few (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "Only a few students arrived early."
+  },
+  {
+    "word": "fifth",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "fifth (omitted ending)",
+    "memoryTip": "Blend the consonants at the start together",
+    "difficulty": 1,
+    "sampleUsage": "Today is my fifth birthday celebration."
+  },
+  {
+    "word": "fifty",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "fifty (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "The puzzle has fifty small pieces."
+  },
+  {
+    "word": "final",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "final (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "This is the final game tonight."
+  },
+  {
+    "word": "forty",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "forty (omitted ending)",
+    "memoryTip": "FORTY \u2014 no U, unlike FOUR",
+    "difficulty": 1,
+    "sampleUsage": "Our math textbook has forty pages."
+  },
+  {
+    "word": "garden",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "garden (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Red roses grow in our backyard garden."
+  },
+  {
+    "word": "grandfather",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "grandfather (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 3,
+    "sampleUsage": "My grandfather tells funny stories always."
+  },
+  {
+    "word": "grandmother",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "grandmother (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 3,
+    "sampleUsage": "We visited our grandmother last night."
+  },
+  {
+    "word": "honey",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "honey (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "The sweet honey tasted delicious here."
+  },
+  {
+    "word": "jaw",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "jaw (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "The dog held a bone tightly."
+  },
+  {
+    "word": "loyal",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "loyal (omitted ending)",
+    "memoryTip": "Two vowels working together make one sound",
+    "difficulty": 1,
+    "sampleUsage": "Dogs are very loyal animal companions."
+  },
+  {
+    "word": "medal",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "medal (omitted ending)",
+    "memoryTip": "MEDAL not METAL \u2014 an athlete wins a MEDAL",
+    "difficulty": 1,
+    "sampleUsage": "He won a gold sports medal."
+  },
+  {
+    "word": "nobody",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "nobody (omitted ending)",
+    "memoryTip": "NO + BODY \u2014 no body here",
+    "difficulty": 1,
+    "sampleUsage": "Nobody went to the quiet park."
+  },
+  {
+    "word": "o'clock",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "oclock (omitted ending)",
+    "memoryTip": "O' + CLOCK \u2014 short for of the clock",
+    "difficulty": 1,
+    "sampleUsage": "The school bell rings at three o'clock."
+  },
+  {
+    "word": "office",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "ofice",
+    "memoryTip": "Double F in the middle of office",
+    "difficulty": 1,
+    "sampleUsage": "Walk straight into the principal's office."
+  },
+  {
+    "word": "often",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "often (omitted ending)",
+    "memoryTip": "OFTEN \u2014 silent T in the middle",
+    "difficulty": 1,
+    "sampleUsage": "We often visit the local library."
+  },
+  {
+    "word": "paper",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "paper (omitted ending)",
+    "memoryTip": "Say each syllable slowly when spelling",
+    "difficulty": 1,
+    "sampleUsage": "Write your name on the paper."
+  },
+  {
+    "word": "parent",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "parent (omitted ending)",
+    "memoryTip": "PAR + ENT \u2014 a PARENT is a PARallel ENTity",
+    "difficulty": 1,
+    "sampleUsage": "Every parent attended the school meeting."
+  },
+  {
+    "word": "path",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "path (omitted ending)",
+    "memoryTip": "Blend the consonants at the start together",
+    "difficulty": 1,
+    "sampleUsage": "Follow the rocky path through woods."
+  },
+  {
+    "word": "pencil",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "pencil (omitted ending)",
+    "memoryTip": "PEN + CIL \u2014 write with a PEN",
+    "difficulty": 1,
+    "sampleUsage": "Sharpen your yellow pencil now."
+  },
+  {
+    "word": "public",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "public (omitted ending)",
+    "memoryTip": "PUB + LIC \u2014 open to the public",
+    "difficulty": 1,
+    "sampleUsage": "This is a public library."
+  },
+  {
+    "word": "quit",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "quit (omitted ending)",
+    "memoryTip": "QU + IT \u2014 do not quit it",
+    "difficulty": 1,
+    "sampleUsage": "Never quit trying your best."
+  },
+  {
+    "word": "reach",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "reach (omitted ending)",
+    "memoryTip": "EACH person can REACH high.",
+    "difficulty": 1,
+    "sampleUsage": "Reach for the top shelf."
+  },
+  {
+    "word": "ready",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "ready (omitted ending)",
+    "memoryTip": "READ a book when READY.",
+    "difficulty": 1,
+    "sampleUsage": "Get ready for school now."
+  },
+  {
+    "word": "roof",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "roof (omitted ending)",
+    "memoryTip": "Look up at the ROOF.",
+    "difficulty": 1,
+    "sampleUsage": "The roof keeps out rain."
+  },
+  {
+    "word": "rough",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "rouh",
+    "memoryTip": "ROUGH has a tough OUGH.",
+    "difficulty": 2,
+    "sampleUsage": "The ocean waves were rough."
+  },
+  {
+    "word": "round",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "round (omitted ending)",
+    "memoryTip": "ROUND like a ball.",
+    "difficulty": 1,
+    "sampleUsage": "The shiny coin is round."
+  },
+  {
+    "word": "ruler",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "ruler (omitted ending)",
+    "memoryTip": "Use a RULER to RULE.",
+    "difficulty": 1,
+    "sampleUsage": "Measure it with a ruler."
+  },
+  {
+    "word": "safe",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "safe (omitted ending)",
+    "memoryTip": "SAFE has a silent E.",
+    "difficulty": 1,
+    "sampleUsage": "Wear a helmet to stay safe."
+  },
+  {
+    "word": "she's",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "shes (omitted ending)",
+    "memoryTip": "SHE + S with an apostrophe.",
+    "difficulty": 1,
+    "sampleUsage": "She's reading a very long book."
+  },
+  {
+    "word": "sidewalk",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "sidewak",
+    "memoryTip": "SIDE + WALK on the pavement.",
+    "difficulty": 2,
+    "sampleUsage": "Walk carefully along the gray sidewalk."
+  },
+  {
+    "word": "simple",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "simple (omitted ending)",
+    "memoryTip": "SIMPLE ends with a silent E.",
+    "difficulty": 1,
+    "sampleUsage": "This basic math problem is simple."
+  },
+  {
+    "word": "since",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "since (omitted ending)",
+    "memoryTip": "SINCE ends in CE not SE.",
+    "difficulty": 1,
+    "sampleUsage": "I have been here since noon."
+  },
+  {
+    "word": "sink",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sink (omitted ending)",
+    "memoryTip": "INK inside the kitchen SINK.",
+    "difficulty": 1,
+    "sampleUsage": "Wash dishes in the deep sink."
+  },
+  {
+    "word": "sixth",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "sixth (omitted ending)",
+    "memoryTip": "SIX + TH.",
+    "difficulty": 1,
+    "sampleUsage": "He is the sixth person online."
+  },
+  {
+    "word": "sixty",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sixty (omitted ending)",
+    "memoryTip": "SIX + TY.",
+    "difficulty": 1,
+    "sampleUsage": "Sixty minutes make one full hour."
+  },
+  {
+    "word": "smooth",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "smooth (omitted ending)",
+    "memoryTip": "Double O makes it SMOOTH.",
+    "difficulty": 1,
+    "sampleUsage": "The glass table felt completely smooth."
+  },
+  {
+    "word": "sneeze",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sneeze (omitted ending)",
+    "memoryTip": "SNEEZE has a double E.",
+    "difficulty": 1,
+    "sampleUsage": "Cover your mouth when you sneeze."
+  },
+  {
+    "word": "thirty",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "thirty (omitted ending)",
+    "memoryTip": "THIR + TY.",
+    "difficulty": 1,
+    "sampleUsage": "Thirty minutes makes half hour."
+  },
+  {
+    "word": "towel",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "towel (omitted ending)",
+    "memoryTip": "Dry off with a TOWEL.",
+    "difficulty": 1,
+    "sampleUsage": "Grab a clean bath towel."
+  },
+  {
+    "word": "tube",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "tube (omitted ending)",
+    "memoryTip": "TUBE ends in silent E.",
+    "difficulty": 1,
+    "sampleUsage": "Squeeze the toothpaste tube gently."
+  },
+  {
+    "word": "tuna",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "tuna (omitted ending)",
+    "memoryTip": "TU + NA.",
+    "difficulty": 1,
+    "sampleUsage": "I ate a tuna sandwich."
+  },
+  {
+    "word": "visit",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "visit (omitted ending)",
+    "memoryTip": "VIS + IT.",
+    "difficulty": 1,
+    "sampleUsage": "We will visit Grandma today."
+  },
+  {
+    "word": "wait",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "wait (omitted ending)",
+    "memoryTip": "WAIT on the road.",
+    "difficulty": 1,
+    "sampleUsage": "Please wait for me here."
+  },
+  {
+    "word": "wife",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "wife (omitted ending)",
+    "memoryTip": "WIFE has a silent E.",
+    "difficulty": 1,
+    "sampleUsage": "His wife likes to paint."
+  },
+  {
+    "word": "wonder",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "wonder (omitted ending)",
+    "memoryTip": "WON + DER.",
+    "difficulty": 1,
+    "sampleUsage": "I wonder what happens next."
+  },
+  {
+    "word": "wood",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "wood (omitted ending)",
+    "memoryTip": "Double O in the WOOD.",
+    "difficulty": 1,
+    "sampleUsage": "Chop some wood for fire."
+  },
+  {
+    "word": "action",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "action (omitted ending)",
+    "memoryTip": "ACT + ION.",
+    "difficulty": 1,
+    "sampleUsage": "The movie has much action."
+  },
+  {
+    "word": "cause",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "cause (omitted ending)",
+    "memoryTip": "CAUSE has a silent E.",
+    "difficulty": 1,
+    "sampleUsage": "Heavy rains cause big floods."
+  },
+  {
+    "word": "equal",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "equal (omitted ending)",
+    "memoryTip": "E + QUAL.",
+    "difficulty": 1,
+    "sampleUsage": "Cut the pie into equal slices."
+  },
+  {
+    "word": "exact",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "exact (omitted ending)",
+    "memoryTip": "EX + ACT.",
+    "difficulty": 1,
+    "sampleUsage": "Tell me the exact time."
+  },
+  {
+    "word": "period",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "period (omitted ending)",
+    "memoryTip": "PER + I + OD.",
+    "difficulty": 1,
+    "sampleUsage": "End the sentence with period."
+  },
+  {
+    "word": "phone",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "phone (omitted ending)",
+    "memoryTip": "PHONE \u2014 PH makes F.",
+    "difficulty": 1,
+    "sampleUsage": "Answer the ringing office phone."
+  },
+  {
+    "word": "record",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "record (omitted ending)",
+    "memoryTip": "REC + ORD.",
+    "difficulty": 1,
+    "sampleUsage": "We record music in studio."
+  },
+  {
+    "word": "rising",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "riseing",
+    "memoryTip": "RISE + ING \u2014 drop the E first",
+    "difficulty": 1,
+    "sampleUsage": "The sun is rising in the east."
+  },
+  {
+    "word": "section",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "secsion",
+    "memoryTip": "SEC + TION \u2014 ends in TION",
+    "difficulty": 2,
+    "sampleUsage": "Read the first section carefully tonight."
+  },
+  {
+    "word": "several",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sevral",
+    "memoryTip": "SEV + ER + AL \u2014 say all three parts",
+    "difficulty": 2,
+    "sampleUsage": "I read several books this summer."
+  },
+  {
+    "word": "shoulder",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "shulder",
+    "memoryTip": "SHOUL + DER \u2014 silent L in shoulder",
+    "difficulty": 3,
+    "sampleUsage": "He carried the bag on his shoulder."
+  },
+  {
+    "word": "shouted",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "shoted",
+    "memoryTip": "SHOUT + ED \u2014 OU vowel team",
+    "difficulty": 1,
+    "sampleUsage": "She shouted across the noisy playground."
+  },
+  {
+    "word": "signal",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "signil",
+    "memoryTip": "SIG + NAL \u2014 think of a sign",
+    "difficulty": 2,
+    "sampleUsage": "The traffic signal turned bright red."
+  },
+  {
+    "word": "size",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sise",
+    "memoryTip": "SIZE ends in ZE, not SE",
+    "difficulty": 1,
+    "sampleUsage": "What size shoe do you wear?"
+  },
+  {
+    "word": "soar",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "sore",
+    "memoryTip": "SOAR \u2014 OA team makes it fly high",
+    "difficulty": 2,
+    "sampleUsage": "Eagles soar above the tall mountains."
+  },
+  {
+    "word": "soil",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "soile",
+    "memoryTip": "SOIL \u2014 OI vowel team in the middle",
+    "difficulty": 1,
+    "sampleUsage": "Plants grow best in rich soil."
+  },
+  {
+    "word": "solve",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "solv",
+    "memoryTip": "SOLVE ends in silent E",
+    "difficulty": 1,
+    "sampleUsage": "Can you solve this math problem?"
+  },
+  {
+    "word": "split",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "spilt",
+    "memoryTip": "SPL + IT \u2014 three consonants blend together",
+    "difficulty": 1,
+    "sampleUsage": "Split the cookie in two equal halves."
+  },
+  {
+    "word": "sports",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "sportes",
+    "memoryTip": "SP + ORTS \u2014 sports ends with S",
+    "difficulty": 1,
+    "sampleUsage": "She plays many sports after school."
+  },
+  {
+    "word": "square",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "sqare",
+    "memoryTip": "SQU + ARE \u2014 three consonants start square",
+    "difficulty": 2,
+    "sampleUsage": "Draw a perfect square on the paper."
+  },
+  {
+    "word": "squeeze",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "squeze",
+    "memoryTip": "SQU + EEZ + E \u2014 double E in squeeze",
+    "difficulty": 2,
+    "sampleUsage": "Squeeze the juice from the orange."
+  },
+  {
+    "word": "stain",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "stane",
+    "memoryTip": "STAIN \u2014 AI vowel team in the middle",
+    "difficulty": 1,
+    "sampleUsage": "The grass left a green stain."
+  },
+  {
+    "word": "state",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "stait",
+    "memoryTip": "STATE \u2014 A-E vowel team makes long A",
+    "difficulty": 1,
+    "sampleUsage": "Florida is a warm sunny state."
+  },
+  {
+    "word": "statement",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "statment",
+    "memoryTip": "STATE + MENT \u2014 A-E team plus MENT",
+    "difficulty": 2,
+    "sampleUsage": "He made a clear public statement."
+  },
+  {
+    "word": "station",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "stasion",
+    "memoryTip": "STA + TION \u2014 ends in TION not SION",
+    "difficulty": 2,
+    "sampleUsage": "We met at the train station early."
+  },
+  {
+    "word": "steer",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "stear",
+    "memoryTip": "STEER \u2014 double E in the middle",
+    "difficulty": 2,
+    "sampleUsage": "It takes skill to steer a boat."
+  },
+  {
+    "word": "stopping",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "stoping",
+    "memoryTip": "STOP + P + ING \u2014 double P when stopping",
+    "difficulty": 2,
+    "sampleUsage": "The bus is stopping at Main Street."
+  },
+  {
+    "word": "sunset",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sunzet",
+    "memoryTip": "SUN + SET \u2014 two small words in one",
+    "difficulty": 1,
+    "sampleUsage": "We watched the beautiful orange sunset together."
+  },
+  {
+    "word": "supply",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "suply",
+    "memoryTip": "SUP + PLY \u2014 double P in supply",
+    "difficulty": 2,
+    "sampleUsage": "The store had a large toy supply."
+  },
+  {
+    "word": "sure",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "shure",
+    "memoryTip": "SURE \u2014 SH sound but spelled with S",
+    "difficulty": 2,
+    "sampleUsage": "Are you sure that answer is correct?"
+  },
+  {
+    "word": "surface",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "surfise",
+    "memoryTip": "SUR + FACE \u2014 face ends in ACE",
+    "difficulty": 2,
+    "sampleUsage": "The surface of the lake was calm."
+  },
+  {
+    "word": "sweater",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "sweeter",
+    "memoryTip": "SWEAT + ER \u2014 EA makes short E sound",
+    "difficulty": 2,
+    "sampleUsage": "Wear a warm sweater on cold mornings."
+  },
+  {
+    "word": "syrup",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sirup",
+    "memoryTip": "SYR + UP \u2014 Y makes the I sound",
+    "difficulty": 2,
+    "sampleUsage": "Pour maple syrup on your pancakes."
+  },
+  {
+    "word": "tablet",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "tablit",
+    "memoryTip": "TAB + LET \u2014 like a small table",
+    "difficulty": 1,
+    "sampleUsage": "She reads on her new tablet."
+  },
+  {
+    "word": "though",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "thougt",
+    "memoryTip": "THOUGH \u2014 silent GH after OU",
+    "difficulty": 2,
+    "sampleUsage": "Even though it rained, we had fun."
+  },
+  {
+    "word": "toward",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "toword",
+    "memoryTip": "TO + WARD \u2014 TO goes toward WARD",
+    "difficulty": 1,
+    "sampleUsage": "Walk toward the big red building."
+  },
+  {
+    "word": "traffic",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "trafic",
+    "memoryTip": "TRAFF + IC \u2014 double F in traffic",
+    "difficulty": 2,
+    "sampleUsage": "Heavy traffic made us arrive late."
+  },
+  {
+    "word": "trail",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "traile",
+    "memoryTip": "TRAIL \u2014 AI vowel team in the middle",
+    "difficulty": 1,
+    "sampleUsage": "We hiked along the forest trail."
+  },
+  {
+    "word": "triangle",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "triangel",
+    "memoryTip": "TRI + AN + GLE \u2014 tri means three sides",
+    "difficulty": 2,
+    "sampleUsage": "A triangle has exactly three straight sides."
+  },
+  {
+    "word": "tunnel",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "tunel",
+    "memoryTip": "TUN + NEL \u2014 double N in the middle",
+    "difficulty": 2,
+    "sampleUsage": "The train passed through a dark tunnel."
+  },
+  {
+    "word": "type",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "tipe",
+    "memoryTip": "TYPE \u2014 Y makes the long I sound",
+    "difficulty": 1,
+    "sampleUsage": "Please type your name in the box."
+  },
+  {
+    "word": "understood",
+    "grade": 5,
+    "phonicPattern": "double letter",
+    "commonMistake": "understod",
+    "memoryTip": "UNDER + STOOD \u2014 double O in stood",
+    "difficulty": 2,
+    "sampleUsage": "She understood every word of the lesson."
+  },
+  {
+    "word": "unknown",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "unkown",
+    "memoryTip": "UN + KNOWN \u2014 silent K in known",
+    "difficulty": 2,
+    "sampleUsage": "The cause of the noise was unknown."
+  },
+  {
+    "word": "value",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "vailue",
+    "memoryTip": "VAL + UE \u2014 short and simple ending",
+    "difficulty": 1,
+    "sampleUsage": "Kindness has great value in life."
+  },
+  {
+    "word": "warn",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "wern",
+    "memoryTip": "WARN \u2014 AR vowel team in the middle",
+    "difficulty": 1,
+    "sampleUsage": "Warn others about the slippery floor."
+  },
+  {
+    "word": "whoever",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "whoevir",
+    "memoryTip": "WHO + EVER \u2014 who plus ever",
+    "difficulty": 2,
+    "sampleUsage": "Whoever finishes first may go outside."
+  },
+  {
+    "word": "whole",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "hole",
+    "memoryTip": "WHOLE \u2014 silent W at the beginning",
+    "difficulty": 2,
+    "sampleUsage": "She ate the whole apple for lunch."
+  },
+  {
+    "word": "wonderful",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "wonderfull",
+    "memoryTip": "WONDER + FUL \u2014 only one L in wonderful",
+    "difficulty": 2,
+    "sampleUsage": "We had a wonderful time at the fair."
+  },
+  {
+    "word": "wound",
+    "grade": 5,
+    "phonicPattern": "vowel team",
+    "commonMistake": "wond",
+    "memoryTip": "WOUND \u2014 OU team with silent beginning",
+    "difficulty": 2,
+    "sampleUsage": "She had a small wound on her knee."
+  },
+  {
+    "word": "x-ray",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "exray",
+    "memoryTip": "X + RAY \u2014 two parts with a hyphen",
+    "difficulty": 2,
+    "sampleUsage": "The doctor took an x-ray of my arm."
+  },
+  {
+    "word": "yesterday",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "yestarday",
+    "memoryTip": "YES + TER + DAY \u2014 three parts say them all",
+    "difficulty": 2,
+    "sampleUsage": "Yesterday was a warm and sunny day."
+  },
+  {
+    "word": "rocket",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "rockit",
+    "memoryTip": "ROCK + ET \u2014 ends in ET not IT",
+    "difficulty": 1,
+    "sampleUsage": "The rocket soared high into space."
+  },
+  {
+    "word": "unlock",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "unlok",
+    "memoryTip": "UN + LOCK \u2014 silent CK at the end",
+    "difficulty": 1,
+    "sampleUsage": "Use the key to unlock the door."
+  },
+  {
+    "word": "struck",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "struk",
+    "memoryTip": "STR + UCK \u2014 three-consonant blend starts struck",
+    "difficulty": 2,
+    "sampleUsage": "Lightning struck the tall oak tree."
+  },
+  {
+    "word": "complex",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "compleks",
+    "memoryTip": "COM + PLEX \u2014 ends in EX not EKS",
+    "difficulty": 2,
+    "sampleUsage": "The math problem was very complex."
+  },
+  {
+    "word": "stomach",
+    "grade": 5,
+    "phonicPattern": "silent letter",
+    "commonMistake": "stomak",
+    "memoryTip": "STOM + ACH \u2014 silent CH sounds like K",
+    "difficulty": 2,
+    "sampleUsage": "A big meal fills your stomach quickly."
+  },
+  {
+    "word": "perplex",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "purplex",
+    "memoryTip": "PER + PLEX \u2014 ends in EX not EKS",
+    "difficulty": 3,
+    "sampleUsage": "The mystery began to perplex the detective."
+  },
+  {
+    "word": "releasing",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "releesing",
+    "memoryTip": "RE + LEAS + ING \u2014 EA team inside",
+    "difficulty": 2,
+    "sampleUsage": "The zoo is releasing the bird today."
+  },
+  {
+    "word": "strong",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "stong",
+    "memoryTip": "STR + ONG \u2014 three consonants start strong",
+    "difficulty": 1,
+    "sampleUsage": "She is very strong for her age."
+  },
+  {
+    "word": "shrug",
+    "grade": 5,
+    "phonicPattern": "consonant blend",
+    "commonMistake": "shurg",
+    "memoryTip": "SHR + UG \u2014 three-consonant blend at start",
+    "difficulty": 1,
+    "sampleUsage": "He gave a shrug and walked away."
+  },
+  {
+    "word": "science",
+    "grade": 5,
+    "phonicPattern": "ie rule",
+    "commonMistake": "scince",
+    "memoryTip": "SCI + ENCE \u2014 I before E in science",
+    "difficulty": 2,
+    "sampleUsage": "Science explains how the world works."
+  },
+  {
+    "word": "Fidget",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "fidgit",
+    "memoryTip": "FID + GET \u2014 ends in ET not IT",
+    "difficulty": 2,
+    "sampleUsage": "Try not to fidget during the concert."
+  },
+  {
+    "word": "sentence",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sentance",
+    "memoryTip": "SEN + TENCE \u2014 ends in ENCE not ANCE",
+    "difficulty": 2,
+    "sampleUsage": "Every sentence starts with a capital letter."
   }
 ]
