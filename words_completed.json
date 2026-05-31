@@ -417,4 +417,195 @@
     "difficulty": 1,
     "sampleUsage": "The boy kicked the ball."
   },
+  {
+    "word": "like",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "likee",
+    "memoryTip": "LIKE \u2014 silent E makes I say its name",
+    "difficulty": 2,
+    "sampleUsage": "I like to read before bed."
+  },
+   {
+    "word": "can",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "cen",
+    "memoryTip": "CAN do it \u2014 C + A + N",
+    "difficulty": 1,
+    "sampleUsage": "I can tie my own shoes."
+  },
+  {
+    "word": "see",
+    "grade": 1,
+    "phonicPattern": "vowel team",
+    "commonMistake": "se",
+    "memoryTip": "SEE \u2014 double E vowel team",
+    "difficulty": 1,
+    "sampleUsage": "I can see the mountains from here."
+  },
+  {
+    "word": "by",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "bye",
+    "memoryTip": "BY \u2014 just B + Y",
+    "difficulty": 1,
+    "sampleUsage": "The store is by the park."
+  },
+  {
+    "word": "at",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "ate",
+    "memoryTip": "AT home \u2014 A + T",
+    "difficulty": 1,
+    "sampleUsage": "We are at the park."
+  },
+  {
+    "word": "are",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "aae",
+    "memoryTip": "ARE you sure? A + R + E",
+    "difficulty": 1,
+    "sampleUsage": "The birds are singing."
+  },
+  {
+    "word": "do",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "doe",
+    "memoryTip": "DO \u2014 D + O",
+    "difficulty": 1,
+    "sampleUsage": "What do you want for lunch?"
+  },
+  {
+    "word": "up",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "upe",
+    "memoryTip": "UP \u2014 just U + P",
+    "difficulty": 1,
+    "sampleUsage": "The balloon floated up into the sky."
+  },
+   {
+    "word": "get",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "gat",
+    "memoryTip": "GET \u2014 G + E + T",
+    "difficulty": 1,
+    "sampleUsage": "Can you get me a glass of water?"
+  },
+  {
+    "word": "had",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "hed",
+    "memoryTip": "HAD \u2014 H + A + D",
+    "difficulty": 1,
+    "sampleUsage": "She had a great time at the party."
+  },
+  {
+    "word": "day",
+    "grade": 1,
+    "phonicPattern": "vowel team",
+    "commonMistake": "da",
+    "memoryTip": "DAY \u2014 AY vowel team",
+    "difficulty": 1,
+    "sampleUsage": "Today is a sunny day."
+  },
+  {
+    "word": "be",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "bee",
+    "memoryTip": "BE yourself \u2014 just B + E",
+    "difficulty": 1,
+    "sampleUsage": "Try to be kind to others."
+  },
+  {
+    "word": "as",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "ase",
+    "memoryTip": "AS fast as \u2014 A + S",
+    "difficulty": 1,
+    "sampleUsage": "She ran as fast as she could."
+  },
+  {
+    "word": "fun",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "fan",
+    "memoryTip": "FUN \u2014 F + U + N",
+    "difficulty": 1,
+    "sampleUsage": "Swimming is so much fun!"
+  },
+   
+  {
+    "word": "did",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "dad",
+    "memoryTip": "DID \u2014 D + I + D",
+    "difficulty": 1,
+    "sampleUsage": "Did you finish your homework?"
+  },
+  {
+    "word": "how",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "haw",
+    "memoryTip": "HOW \u2014 H + OW vowel team",
+    "difficulty": 1,
+    "sampleUsage": "How did you make that?"
+  },
+  {
+    "word": "eat",
+    "grade": 1,
+    "phonicPattern": "vowel team",
+    "commonMistake": "et",
+    "memoryTip": "EAT \u2014 EA vowel team",
+    "difficulty": 1,
+    "sampleUsage": "We eat dinner as a family."
+  },
+  {
+    "word": "sat",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "set",
+    "memoryTip": "SAT \u2014 S + A + T",
+    "difficulty": 1,
+    "sampleUsage": "The cat sat by the window."
+  },
+  {
+    "word": "run",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "ran",
+    "memoryTip": "RUN \u2014 R + U + N",
+    "difficulty": 1,
+    "sampleUsage": "We run laps in gym class."
+  },
+  {
+    "word": "sit",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "sat",
+    "memoryTip": "SIT \u2014 S + I + T",
+    "difficulty": 1,
+    "sampleUsage": "Please sit down at your desk."
+  },
+  {
+    "word": "say",
+    "grade": 1,
+    "phonicPattern": "vowel team",
+    "commonMistake": "sa",
+    "memoryTip": "SAY \u2014 AY vowel team",
+    "difficulty": 1,
+    "sampleUsage": "What did you say?"
+  }
 ]
+// look, yes, got, not, now, us
