@@ -5948,7 +5948,6 @@
     "difficulty": 1,
     "sampleUsage": "He hit the ball with a bat."
   },
-  
   {
     "word": "bed",
     "grade": 1,
@@ -6282,7 +6281,6 @@
     "difficulty": 1,
     "sampleUsage": "The fog made it hard to see."
   },
-  
   {
     "word": "four",
     "grade": 1,
@@ -6310,7 +6308,6 @@
     "difficulty": 2,
     "sampleUsage": "I got a letter from my friend."
   },
-  
   {
     "word": "funny",
     "grade": 1,
@@ -6356,7 +6353,6 @@
     "difficulty": 2,
     "sampleUsage": "The leaves are green in spring."
   },
-  
   {
     "word": "hand",
     "grade": 1,
@@ -6528,7 +6524,6 @@
     "difficulty": 1,
     "sampleUsage": "Put the lid back on the jar."
   },
-  
   {
     "word": "lip",
     "grade": 1,
@@ -6610,7 +6605,6 @@
     "difficulty": 1,
     "sampleUsage": "The men fixed the road."
   },
- 
   {
     "word": "more",
     "grade": 1,
@@ -6854,7 +6848,6 @@
     "difficulty": 2,
     "sampleUsage": "The kids loved the big slide at the park."
   },
- 
   {
     "word": "some",
     "grade": 1,
@@ -7017,7 +7010,6 @@
     "difficulty": 1,
     "sampleUsage": "I have two apples in my bag."
   },
-  
   {
     "word": "was",
     "grade": 1,
@@ -7126,7 +7118,6 @@
     "difficulty": 3,
     "sampleUsage": "The sun is big and yellow."
   },
- 
   {
     "word": "them",
     "grade": 1,
@@ -7308,4 +7299,3 @@
     "sampleUsage": "Where did I put my shoes?"
   }
 ]
-// said, house, because
