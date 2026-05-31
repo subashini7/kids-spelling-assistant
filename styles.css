@@ -175,3 +175,182 @@ button:disabled {
   min-width: 18px;
   text-align: center;
 }
+
+/* ─── Grade selector ─────────────────────────────────────────────────────── */
+.grade-selector {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.grade-btn {
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.grade-btn:hover:not(.is-active) {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.grade-btn.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ─── Export button ───────────────────────────────────────────────────────── */
+.export-btn {
+  background: #16a34a;
+  border-color: #16a34a;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+}
+
+.export-btn:hover:not(:disabled) {
+  background: #15803d;
+  border-color: #15803d;
+}
+
+/* ─── Tab bar ─────────────────────────────────────────────────────────────── */
+.tab-bar {
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tab-btn:hover:not(:disabled) {
+  background: var(--bg);
+  color: var(--text);
+  border-color: transparent;
+}
+
+.tab-btn.is-active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* ─── Tab panes ───────────────────────────────────────────────────────────── */
+#tab-practice,
+#tab-learn {
+  display: grid;
+  gap: 16px;
+}
+
+/* ─── Filter bar ──────────────────────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #eef3ff;
+  border: 1px solid #c7d9ff;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.filter-bar button {
+  margin-left: auto;
+  padding: 5px 14px;
+  font-size: 0.85rem;
+}
+
+/* ─── Learn tab ───────────────────────────────────────────────────────────── */
+.learn-prompt {
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+  font-size: 1rem;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+.cat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  transition: box-shadow 0.15s;
+}
+
+.cat-card:hover {
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1);
+}
+
+.cat-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.cat-hint {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.cat-examples {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 2px 0;
+}
+
+.cat-word {
+  background: #eef3ff;
+  color: var(--accent);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.cat-count {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.cat-btn {
+  margin-top: auto;
+  padding: 7px 10px;
+  font-size: 0.85rem;
+  background: var(--accent);
+  border-color: var(--accent);
+  cursor: pointer;
+  width: 100%;
+}
