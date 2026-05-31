@@ -12,7 +12,6 @@ const output          = document.getElementById("output");
 const celebration     = document.getElementById("celebration");
 const showSummaryBtn  = document.getElementById("show-summary-btn");
 const dailySummaryContent = document.getElementById("daily-summary-content");
-const exportMasteredBtn   = document.getElementById("export-mastered-btn");
 const diffDecBtn      = document.getElementById("diff-dec");
 const diffIncBtn      = document.getElementById("diff-inc");
 const diffDisplay     = document.getElementById("diff-value");
@@ -167,6 +166,8 @@ let session        = loadTodaySession(grade);
 let words          = [];
 let allWordsCache  = null;
 let masteredWords  = loadMasteredSet(grade);
+let retryMode      = false;
+let srQueue        = []; // [{ wordObj, dueIn }]
 
 // ─── Tab switching ───────────────────────────────────────────────────────────
 function switchTab(name) {
@@ -181,6 +182,8 @@ tabBtnLearn.onclick    = () => switchTab("learn");
 
 // ─── Start practice (loads words for current grade/difficulty/filter) ─────────
 async function startPractice() {
+  srQueue = [];
+  retryMode = false;
   session = loadTodaySession(grade);
   masteredWords = loadMasteredSet(grade);
 
@@ -229,6 +232,7 @@ diffIncBtn.onclick = () => {
 // ─── Filter bar ──────────────────────────────────────────────────────────────
 clearFilterBtn.onclick = async () => {
   categoryFilter = null;
+  retryMode = false;
   filterBar.hidden = true;
   words = await loadWordsForGrade(grade, difficulty, null);
   statusEl.innerText = words.length
@@ -327,6 +331,118 @@ function recordAttempt(nextSession, word, correct, errorType = null) {
   }
 
   return newlyMastered;
+}
+
+// ─── HTML escape ─────────────────────────────────────────────────────────────
+const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ESC_MAP[c]);
+
+// ─── Syllabify ────────────────────────────────────────────────────────────────
+const DIGRAPHS = new Set(['ch','sh','th','wh','ph','ck','ng','gh','wr','kn','gn','mb','tch']);
+const BLENDS   = new Set(['bl','br','cl','cr','dr','fl','fr','gl','gr','pl','pr','sc','sk','sl','sm','sn','sp','st','sw','tr','tw','qu','dw']);
+
+function syllabify(word) {
+  const w = word.toLowerCase();
+  if (w.length <= 3) return word;
+  const isVowel = (c) => 'aeiouy'.includes(c);
+
+  const nuclei = [];
+  let i = 0;
+  while (i < w.length) {
+    if (isVowel(w[i])) {
+      const start = i;
+      while (i < w.length && isVowel(w[i])) i++;
+      nuclei.push({ start, end: i - 1 });
+    } else { i++; }
+  }
+
+  // Drop trailing silent e
+  if (
+    nuclei.length > 1 && w.endsWith('e') &&
+    !isVowel(w[w.length - 2]) &&
+    nuclei[nuclei.length - 1].start === w.length - 1
+  ) nuclei.pop();
+
+  if (nuclei.length <= 1) return word;
+
+  const breaks = [];
+  for (let n = 0; n < nuclei.length - 1; n++) {
+    const after  = nuclei[n].end + 1;
+    const before = nuclei[n + 1].start;
+    const cons   = w.slice(after, before);
+    if (cons.length === 0) {
+      breaks.push(after);
+    } else if (cons.length === 1) {
+      breaks.push(after);
+    } else if (cons.length === 2) {
+      breaks.push((DIGRAPHS.has(cons) || BLENDS.has(cons)) ? after : after + 1);
+    } else {
+      const last2 = cons.slice(-2);
+      breaks.push((DIGRAPHS.has(last2) || BLENDS.has(last2)) ? before - 2 : before - 1);
+    }
+  }
+
+  let result = '', prev = 0;
+  for (const b of breaks) { result += word.slice(prev, b) + '·'; prev = b; }
+  return result + word.slice(prev);
+}
+
+// ─── Wordle ───────────────────────────────────────────────────────────────────
+function computeWordleColors(typed, target) {
+  const t = target.toLowerCase();
+  const u = typed.toLowerCase();
+  const colors = Array(u.length).fill('absent');
+  const tLeft  = t.split('');
+
+  for (let i = 0; i < u.length && i < t.length; i++) {
+    if (u[i] === t[i]) { colors[i] = 'correct'; tLeft[i] = null; }
+  }
+  for (let i = 0; i < Math.min(u.length, t.length); i++) {
+    if (colors[i] === 'correct') continue;
+    const idx = tLeft.indexOf(u[i]);
+    if (idx !== -1) { colors[i] = 'present'; tLeft[idx] = null; }
+  }
+  for (let i = t.length; i < u.length; i++) colors[i] = 'extra';
+  return colors;
+}
+
+function buildWordleHTML(typed, target) {
+  if (!typed) return '';
+  const colors = computeWordleColors(typed, target);
+  const spans  = [...typed].map((ch, i) =>
+    `<span class="wl-${colors[i] || 'extra'}">${esc(ch)}</span>`
+  );
+  for (let i = typed.length; i < target.length; i++) {
+    spans.push(`<span class="wl-missing">_</span>`);
+  }
+  return `<div class="wordle-row">${spans.join('')}</div>`;
+}
+
+function buildMaskedHint(word) {
+  if (word.length <= 2) return word;
+  return [...word].map((ch, i) => (i === 0 || i === word.length - 1) ? ch : '_').join(' ') +
+    `  (${word.length} letters)`;
+}
+
+// ─── Spaced repetition ────────────────────────────────────────────────────────
+const SR_INTERVALS = [3, 7, 15];
+
+function tickSR() {
+  srQueue.forEach((item) => { item.dueIn -= 1; });
+}
+
+function scheduleSR(wordObj, correct, streak) {
+  srQueue = srQueue.filter((item) => item.wordObj.word !== wordObj.word);
+  const interval = correct ? SR_INTERVALS[Math.min(streak - 1, SR_INTERVALS.length - 1)] : 2;
+  srQueue.push({ wordObj, dueIn: Math.max(1, interval) });
+}
+
+function getDueSRWord(pool, previousWord) {
+  const poolSet = new Set(pool.map((w) => w.word));
+  const due = srQueue.filter(
+    (item) => item.dueIn <= 0 && item.wordObj.word !== previousWord && poolSet.has(item.wordObj.word)
+  );
+  return due.length ? due[Math.floor(Math.random() * due.length)].wordObj : null;
 }
 
 // ─── Speech ──────────────────────────────────────────────────────────────────
@@ -473,6 +589,7 @@ catGrid.addEventListener("click", async (e) => {
   filterLabel.textContent = CATEGORY_LABELS[cat] || cat;
   filterBar.hidden = false;
   switchTab("practice");
+  retryMode = false;
   words = await loadWordsForGrade(grade, difficulty, cat);
   statusEl.innerText = words.length
     ? `Loaded ${words.length} words for "${CATEGORY_LABELS[cat] || cat}".`
@@ -481,23 +598,6 @@ catGrid.addEventListener("click", async (e) => {
   currentWordObj = null;
   output.innerText = words.length ? `Ready! Click "Next word" to start.` : `No words in this category yet.`;
 });
-
-// ─── Export mastered words ───────────────────────────────────────────────────
-exportMasteredBtn.onclick = async () => {
-  if (masteredWords.size === 0) return;
-  const all = await fetchWords();
-  const masteredObjs = all.filter(
-    (w) => Number(w.grade) === Number(grade) && masteredWords.has(w.word.toLowerCase())
-  );
-  const json = JSON.stringify(masteredObjs, null, 2);
-  const blob = new Blob([json], { type: "application/json" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = `mastered_grade${grade}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-};
 
 // ─── Event handlers ───────────────────────────────────────────────────────────
 audioBtn.onclick = () => {
@@ -513,7 +613,10 @@ audioExampleBtn.onclick = () => {
 
 nextWordBtn.onclick = () => {
   if (!words.length) { output.innerText = "Words are still loading. Please wait."; childInput.focus(); return; }
-  currentWordObj = selectRandomWord(words, session.words, lastWord);
+  tickSR();
+  retryMode = false;
+  dailySummaryContent.innerText = '';
+  currentWordObj = getDueSRWord(words, lastWord) || selectRandomWord(words, session.words, lastWord);
   lastWord = currentWordObj.word;
   childInput.value = "";
   output.innerText = "Listening...";
@@ -522,33 +625,55 @@ nextWordBtn.onclick = () => {
 };
 
 submitAnsBtn.onclick = () => {
-  const userInput = childInput.value.trim().toLowerCase();
+  const userInput = childInput.value.trim();
   if (!currentWordObj) { output.innerText = 'Click "Hear a word" first.'; return; }
+  if (!userInput) { childInput.focus(); return; }
 
-  let errorType = null;
+  const target    = currentWordObj.word;
+  const isCorrect = userInput.toLowerCase() === target.toLowerCase();
 
-  if (userInput === currentWordObj.word.toLowerCase()) {
-    const newlyMastered = recordAttempt(session, currentWordObj.word, true, null);
-    if (newlyMastered) {
-      output.innerText = `Correct! "${currentWordObj.word}" mastered — it won't appear again.`;
-      playCelebration();
-    } else {
-      output.innerText = "Correct!";
-      playCelebration();
-    }
+  if (isCorrect) {
+    retryMode = false;
+    const newlyMastered = recordAttempt(session, target, true, null);
+    const streak = loadLifetime(grade)[target.toLowerCase()]?.streak ?? 1;
+    scheduleSR(currentWordObj, true, streak);
+    const syl = syllabify(target);
+    output.innerHTML =
+      buildWordleHTML(userInput, target) +
+      `<div class="result-text">${newlyMastered
+        ? `"${esc(target)}" mastered — won't appear again!`
+        : 'Correct!'}</div>` +
+      (syl !== target ? `<div class="syllable-line">Syllables: <strong>${esc(syl)}</strong></div>` : '');
+    playCelebration();
+
+  } else if (!retryMode) {
+    retryMode = true;
+    const phonicPattern = currentWordObj.phonicPattern || 'phonics pattern';
+    recordAttempt(session, target, false, phonicPattern);
+    scheduleSR(currentWordObj, false, 0);
+    output.innerHTML =
+      buildWordleHTML(userInput, target) +
+      `<div class="result-text retry-prompt">Not quite — try again!<br>` +
+      `<span class="masked-word">${esc(buildMaskedHint(target))}</span></div>`;
+    childInput.value = '';
+    childInput.focus();
+
   } else {
-    const phonicPattern = currentWordObj.phonicPattern || "phonics pattern";
-    const memoryTip = currentWordObj.memoryTip || "try sounding it out slowly";
-    errorType = phonicPattern;
-    recordAttempt(session, currentWordObj.word, false, errorType);
-    output.innerText = `Not quite.\n\nWord: ${currentWordObj.word}\nMemory tip: ${memoryTip}`;
+    retryMode = false;
+    const memoryTip = currentWordObj.memoryTip || 'try sounding it out slowly';
+    const syl = syllabify(target);
+    output.innerHTML =
+      buildWordleHTML(userInput, target) +
+      `<div class="result-text">The word is: <strong>${esc(target)}</strong><br>` +
+      `Tip: ${esc(memoryTip)}` +
+      (syl !== target ? `<br>Syllables: <strong>${esc(syl)}</strong>` : '') +
+      `</div>`;
   }
 };
 
 showSummaryBtn.onclick = () => {
   const summary = buildSummary(session);
   dailySummaryContent.innerText = formatSummaryText(summary);
-  exportMasteredBtn.hidden = masteredWords.size === 0;
 };
 
 childInput.addEventListener("keydown", (e) => {

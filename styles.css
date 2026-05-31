@@ -208,19 +208,6 @@ button:disabled {
   color: #fff;
 }
 
-/* ─── Export button ───────────────────────────────────────────────────────── */
-.export-btn {
-  background: #16a34a;
-  border-color: #16a34a;
-  font-size: 0.9rem;
-  padding: 8px 14px;
-}
-
-.export-btn:hover:not(:disabled) {
-  background: #15803d;
-  border-color: #15803d;
-}
-
 /* ─── Tab bar ─────────────────────────────────────────────────────────────── */
 .tab-bar {
   display: flex;
@@ -357,4 +344,61 @@ button:disabled {
   border-color: var(--accent);
   cursor: pointer;
   width: 100%;
+}
+
+/* ─── Wordle letter tiles ─────────────────────────────────────────────────── */
+.wordle-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.wordle-row span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.wl-correct { background: #22c55e; }
+.wl-present { background: #f59e0b; }
+.wl-absent  { background: #94a3b8; }
+.wl-extra   { background: #f87171; }
+.wl-missing {
+  background: transparent;
+  color: var(--muted);
+  border: 2px dashed var(--border);
+}
+
+/* ─── Result text, syllables, retry hint ─────────────────────────────────── */
+.result-text {
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+.syllable-line {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.retry-prompt {
+  color: #b45309;
+}
+
+.masked-word {
+  display: inline-block;
+  margin-top: 6px;
+  font-family: monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent);
 }

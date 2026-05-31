@@ -6,38 +6,70 @@ A Progressive Web App (PWA) for kids' spelling practice with audio, instant feed
 
 ### Practice tab
 
-- **Grade selector** — choose Grade 1 or Grade 5 directly (no name entry needed)
+- **Select Grade and Level** — choose Grade 1 or Grade 5; words load automatically when the grade or level changes (no Start button needed)
 - **Difficulty selector** (levels 1–5) to control word complexity
-- Click **Start** to load words for the selected grade and level
 - **Hear a word** — reads the word aloud at a slow pace
 - **Hear an example** — reads the sample sentence aloud
-- **Next word** — picks a new word, weighted toward words you've made errors on
+- **Next word** — picks the next word (spaced repetition aware; see below)
 - Type the spelling and press **Enter** (or click **Check**) for instant feedback
-- Shows a memory tip when the answer is wrong
+
+#### Wordle-style letter feedback
+
+After every submission, each typed letter appears as a coloured tile:
+
+| Colour | Meaning |
+|--------|---------|
+| Green | Correct letter, correct position |
+| Yellow | Letter is in the word but wrong position |
+| Grey | Letter not in the word |
+| Red | Extra letters beyond the word length |
+
+#### Guided retry
+
+On the **first** wrong attempt the input clears and a masked hint appears (first and last letter revealed, e.g. `b _ _ _ _ _ _ _ g  (9 letters)`). The child gets one more try before the answer is revealed. Only the original error is recorded — the child is never penalised twice for the same word.
+
+#### Syllable breakdown
+
+After every correct answer or final reveal, the word is shown split into syllables (e.g. `be·gin·ning`) to reinforce the sound-to-spelling connection.
 
 #### Mastery tracking (automatic)
 
 Every correct or wrong answer updates a per-word lifetime record stored in `localStorage`. A word is **mastered** when it is spelled correctly **3 times in a row**:
 
 - The word is removed from the practice pool immediately — mid-session if needed
-- The output shows `"running" mastered — it won't appear again`
-- Mastered words stay excluded on every future Start
+- The output shows `"running" mastered — won't appear again!`
+- Mastered words stay excluded on every future session
 
-The **Daily Summary** shows:
+#### Spaced repetition
+
+Words are automatically scheduled for review based on performance:
+
+| Result | Review interval |
+|--------|----------------|
+| Wrong | After 2 words |
+| 1st correct | After 3 words |
+| 2nd correct | After 7 words |
+| 3rd+ correct | After 15 words |
+
+When a review word comes due it takes priority over the normal weighted-random pick.
+
+#### Daily Summary
+
+The **Show Summary** button displays:
 - Total mastered words (all time) and a note that they are excluded
 - Words answered perfectly today (no errors this session)
 - Words still needing practice, with error count and accuracy %
 - Most common error types
 
-Once any word is mastered, an **Export Mastered Words** button appears in the summary. It downloads `mastered_grade1.json` or `mastered_grade5.json` — full word objects in the same schema as `words_completed.json` — so you can merge them into that file to keep the word bank tidy.
+The summary clears automatically when **Next word** is clicked so previous answers don't distract during practice.
 
 ### Learn tab
 
-Organise practice by spelling pattern or rule. Select a grade and click Start first; the Learn tab then shows one card per category for that grade. Each card shows:
+Browse spelling patterns and rules by grade. The Learn tab is available at any time — switching to it hides the practice controls, and switching back restores them.
 
-- The rule name and a short pattern hint
-- Two of the easiest example words
-- Total word count for the category
+Each category card shows:
+- The rule name and a short pattern hint (e.g. *silent e at the end makes the vowel say its name*)
+- Word count for the category
 
 Click **Practice →** on any card to jump straight to the Practice tab filtered to that category. A blue filter bar shows the active category; click **All words** to return to difficulty-level mode.
 
@@ -60,63 +92,6 @@ ie vs ei rule · Plurals -ies & -ves · gh/ght patterns · Silent letters · **D
 
 Difficulty is scored from phonics pattern weight, word length, and syllable count, then bucketed into grade-specific quintiles. Each word includes: `category`, `phonicPattern`, `commonMistake`, `memoryTip`, `difficulty`, and `sampleUsage`.
 
-### Doubling rule (grade 5)
-
-**Do double** — verb ends in 1 vowel + 1 consonant:
-`run → running` · `stop → stopped` · `begin → beginning` · `commit → committed`
-
-**Don't double:**
-- Ends in a vowel team: `sleep → sleeping` · `peal → pealed` · `wait → waited`
-- Ends in 2 consonants: `arrest → arrested` · `rest → rested`
-- Stress on first syllable: `hap·pen → happened` · `o·pen → opened`
-
-## Merging exported mastered words
-
-After exporting from the app, run this one-liner to append the new entries to `words_completed.json`:
-
-```bash
-python3 - << 'EOF'
-import json
-
-with open('words_completed.json') as f:
-    completed = json.load(f)
-
-with open('mastered_grade5.json') as f:   # or mastered_grade1.json
-    new_words = json.load(f)
-
-existing = {w['word'].lower() for w in completed}
-added = [w for w in new_words if w['word'].lower() not in existing]
-completed.extend(added)
-
-with open('words_completed.json', 'w') as f:
-    json.dump(completed, f, indent=2)
-
-print(f"Added {len(added)} words to words_completed.json")
-EOF
-```
-
-To also remove them from `words.json` (so they never load again):
-
-```bash
-python3 - << 'EOF'
-import json
-
-with open('words_completed.json') as f:
-    completed = {w['word'].lower() for w in json.load(f)}
-
-with open('words.json') as f:
-    words = json.load(f)
-
-before = len(words)
-words = [w for w in words if w['word'].lower() not in completed]
-
-with open('words.json', 'w') as f:
-    json.dump(words, f, indent=2)
-
-print(f"Removed {before - len(words)} words from words.json")
-EOF
-```
-
 ## Run locally
 
 Browsers block ES module scripts on `file://`, so use a local server:
@@ -138,9 +113,9 @@ The service worker path assumes deployment at `/kids-spelling-assistant/`. Updat
 
 ```
 SpellCheckTransformer/
-├── index.html             # Shell: tab bar, Practice pane, Learn pane
+├── index.html             # Shell: tab bar, grade selector, Practice pane, Learn pane
 ├── app.js                 # All app logic (ES module, top-level await)
-├── styles.css             # Styles: grade selector, tabs, cards, difficulty stepper
+├── styles.css             # Styles: grade selector, tabs, cards, wordle tiles
 ├── words.json             # Active word bank (734 words with category + difficulty)
 ├── words_completed.json   # Words removed from practice (already mastered / too easy)
 ├── manifest.json          # PWA manifest
