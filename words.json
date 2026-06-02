@@ -1297,7 +1297,7 @@
     "memoryTip": "KIND + NESS \u2014 double S in kiNDNESS",
     "difficulty": 3,
     "sampleUsage": "Always treat others with genuine kindness.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "kitchen",
@@ -1427,7 +1427,7 @@
     "memoryTip": "Say each syllable slowly when spelling",
     "difficulty": 2,
     "sampleUsage": "Please wait one moment right here.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "monkey",
@@ -1447,7 +1447,7 @@
     "memoryTip": "Say each syllable slowly when spelling",
     "difficulty": 4,
     "sampleUsage": "I noticed a sudden quick movement.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "neighbor",
@@ -1497,7 +1497,7 @@
     "memoryTip": "NINTH \u2014 drop the E from nine",
     "difficulty": 1,
     "sampleUsage": "He placed ninth in the tournament.",
-    "category": "consonant-patterns"
+    "category": "math-science"
   },
   {
     "word": "no one",
@@ -1507,7 +1507,7 @@
     "memoryTip": "Two vowels working together make one sound",
     "difficulty": 2,
     "sampleUsage": "No one answered the telephone call.",
-    "category": "vowel-teams"
+    "category": "general-spelling"
   },
   {
     "word": "obeyed",
@@ -1707,7 +1707,7 @@
     "memoryTip": "Do not SCRAP the S.",
     "difficulty": 3,
     "sampleUsage": "Write notes on scrap paper.",
-    "category": "silent-letters"
+    "category": "general-spelling"
   },
   {
     "word": "search",
@@ -1737,7 +1737,7 @@
     "memoryTip": "SEVEN + TH.",
     "difficulty": 3,
     "sampleUsage": "She finished in seventh place.",
-    "category": "consonant-patterns"
+    "category": "math-science"
   },
   {
     "word": "seventy",
@@ -1757,7 +1757,7 @@
     "memoryTip": "SHARP needles can poke you.",
     "difficulty": 1,
     "sampleUsage": "Use a sharp knife to cut.",
-    "category": "consonant-patterns"
+    "category": "general-spelling"
   },
   {
     "word": "sigh",
@@ -1977,7 +1977,7 @@
     "memoryTip": "USE + LESS with double S.",
     "difficulty": 5,
     "sampleUsage": "Broken keys are totally useless.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "village",
@@ -2017,7 +2017,7 @@
     "memoryTip": "WHEN + EVER.",
     "difficulty": 5,
     "sampleUsage": "Come visit whenever you like.",
-    "category": "consonant-patterns"
+    "category": "general-spelling"
   },
   {
     "word": "whether",
@@ -2187,7 +2187,7 @@
     "memoryTip": "AMUSE + MENT.",
     "difficulty": 5,
     "sampleUsage": "We visited the amusement park.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "annual",
@@ -2267,7 +2267,7 @@
     "memoryTip": "BUSI + NESS has double S.",
     "difficulty": 5,
     "sampleUsage": "They opened a small business.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "calves",
@@ -2737,7 +2737,7 @@
     "memoryTip": "ENJOY + MENT.",
     "difficulty": 5,
     "sampleUsage": "The game brought great enjoyment.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "equation",
@@ -3024,7 +3024,7 @@
     "grade": 5,
     "phonicPattern": "ie rule",
     "commonMistake": "hieght",
-    "memoryTip": "HEIGHT has silent GH.",
+    "memoryTip": "HEIGHT breaks the rule \u2014 EI not IE, sounds like long I not A",
     "difficulty": 2,
     "sampleUsage": "Measure the height of the door.",
     "category": "ie-ei-rule"
@@ -3217,7 +3217,7 @@
     "memoryTip": "LENG + TH.",
     "difficulty": 1,
     "sampleUsage": "Measure the total length here.",
-    "category": "consonant-patterns"
+    "category": "math-science"
   },
   {
     "word": "limb",
@@ -3587,7 +3587,7 @@
     "memoryTip": "PAY + MENT.",
     "difficulty": 4,
     "sampleUsage": "Submit your payment online here.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "perhaps",
@@ -3597,7 +3597,7 @@
     "memoryTip": "PER + HAPS \u2014 notice the H.",
     "difficulty": 5,
     "sampleUsage": "Perhaps it will snow tomorrow.",
-    "category": "silent-letters"
+    "category": "general-spelling"
   },
   {
     "word": "phrase",
@@ -4197,7 +4197,7 @@
     "memoryTip": "SING + LE \u2014 single ends in LE",
     "difficulty": 1,
     "sampleUsage": "There was a single red apple left.",
-    "category": "consonant-patterns"
+    "category": "general-spelling"
   },
   {
     "word": "slippery",
@@ -4227,7 +4227,7 @@
     "memoryTip": "SOUTH + ERN \u2014 like south plus ERN",
     "difficulty": 5,
     "sampleUsage": "We traveled to the southern coast.",
-    "category": "silent-letters"
+    "category": "general-spelling"
   },
   {
     "word": "spoiled",
@@ -4307,7 +4307,7 @@
     "memoryTip": "SUIT + CASE \u2014 ends in CASE not KASE",
     "difficulty": 5,
     "sampleUsage": "Pack your suitcase for the trip tomorrow.",
-    "category": "silent-letters"
+    "category": "vowel-teams"
   },
   {
     "word": "surprise",
@@ -4387,7 +4387,7 @@
     "memoryTip": "THROW + N \u2014 silent W in thrown",
     "difficulty": 3,
     "sampleUsage": "The ball was thrown across the field.",
-    "category": "silent-letters"
+    "category": "general-spelling"
   },
   {
     "word": "tornado",
@@ -4417,7 +4417,7 @@
     "memoryTip": "TREAT + MENT \u2014 EA team in treat",
     "difficulty": 5,
     "sampleUsage": "The doctor explained the treatment plan clearly.",
-    "category": "suffix-ness-ful-less"
+    "category": "suffix-ness-ment-less"
   },
   {
     "word": "trouble",
@@ -4497,7 +4497,7 @@
     "memoryTip": "WHOSE \u2014 silent W, ends in OSE",
     "difficulty": 3,
     "sampleUsage": "Whose backpack is on the classroom floor?",
-    "category": "silent-letters"
+    "category": "general-spelling"
   },
   {
     "word": "wives",
@@ -4637,7 +4637,7 @@
     "memoryTip": "GAUGE \u2014 silent U between two G letters",
     "difficulty": 3,
     "sampleUsage": "Check the fuel gauge before driving far.",
-    "category": "silent-letters"
+    "category": "general-spelling"
   },
   {
     "word": "catalog",
@@ -4897,7 +4897,7 @@
     "memoryTip": "VAR + Y \u2014 one R, AR vowel team",
     "difficulty": 3,
     "sampleUsage": "Temperatures vary a lot in spring.",
-    "category": "vowel-teams"
+    "category": "general-spelling"
   },
   {
     "word": "cruise",
@@ -5648,16 +5648,6 @@
     "difficulty": 1,
     "sampleUsage": "She gave her mom a big hug.",
     "category": "short-u"
-  },
-  {
-    "word": "into",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "intoe",
-    "memoryTip": "IN + TO \u2014 two small words",
-    "difficulty": 5,
-    "sampleUsage": "She jumped into the pool.",
-    "category": "short-i"
   },
   {
     "word": "jet",
@@ -6630,16 +6620,6 @@
     "category": "oo-sound"
   },
   {
-    "word": "got",
-    "grade": 1,
-    "phonicPattern": "sounds-like",
-    "commonMistake": "gat",
-    "memoryTip": "GOT \u2014 G + O + T",
-    "difficulty": 2,
-    "sampleUsage": "I got a new red ball.",
-    "category": "short-o"
-  },
-  {
     "word": "too",
     "grade": 1,
     "phonicPattern": "vowel team",
@@ -7338,5 +7318,245 @@
     "difficulty": 3,
     "sampleUsage": "She opened the door slowly.",
     "category": "no-double-rule"
+  },
+  {
+    "word": "equipment",
+    "grade": 5,
+    "phonicPattern": "qu pattern",
+    "commonMistake": "equipement",
+    "memoryTip": "EQUIP + MENT \u2014 QU makes /kw/ sound",
+    "difficulty": 3,
+    "sampleUsage": "Pack the right equipment for the hike.",
+    "category": "consonant-patterns"
+  },
+  {
+    "word": "liquid",
+    "grade": 5,
+    "phonicPattern": "qu pattern",
+    "commonMistake": "liqued",
+    "memoryTip": "LI + QUID \u2014 QU makes /kw/ sound",
+    "difficulty": 2,
+    "sampleUsage": "Water is a liquid at room temperature.",
+    "category": "consonant-patterns"
+  },
+  {
+    "word": "quizzes",
+    "grade": 5,
+    "phonicPattern": "doubling rule",
+    "commonMistake": "quizes",
+    "memoryTip": "QUIZ \u2192 QUIZZES \u2014 short vowel + Z, double Z before -ES",
+    "difficulty": 3,
+    "sampleUsage": "We had three spelling quizzes this week.",
+    "category": "doubling-rule"
+  },
+  {
+    "word": "queasy",
+    "grade": 5,
+    "phonicPattern": "qu pattern",
+    "commonMistake": "queezy",
+    "memoryTip": "QUE + ASY \u2014 QU makes /kw/ sound, ends in -ASY not -EZY",
+    "difficulty": 3,
+    "sampleUsage": "The boat ride made her feel queasy.",
+    "category": "consonant-patterns"
+  },
+  {
+    "word": "frequent",
+    "grade": 5,
+    "phonicPattern": "qu pattern",
+    "commonMistake": "frequant",
+    "memoryTip": "FRE + QUENT \u2014 QU makes /kw/ sound, ends in -ENT not -ANT",
+    "difficulty": 3,
+    "sampleUsage": "He makes frequent trips to the library.",
+    "category": "consonant-patterns"
+  },
+  {
+    "word": "quotation",
+    "grade": 5,
+    "phonicPattern": "-tion suffix",
+    "commonMistake": "quotasion",
+    "memoryTip": "QUOTE \u2192 QUOTA + TION \u2014 always -TION not -SION here",
+    "difficulty": 3,
+    "sampleUsage": "She read the quotation from the book.",
+    "category": "suffix-tion-sion"
+  },
+  {
+    "word": "conquer",
+    "grade": 5,
+    "phonicPattern": "qu pattern",
+    "commonMistake": "conquor",
+    "memoryTip": "CON + QUER \u2014 QU makes /kw/ sound, ends in -ER not -OR",
+    "difficulty": 3,
+    "sampleUsage": "Hard work can help you conquer any challenge.",
+    "category": "consonant-patterns"
+  },
+  {
+    "word": "shipped",
+    "grade": 5,
+    "phonicPattern": "doubling rule",
+    "commonMistake": "shiped",
+    "memoryTip": "SHIP \u2192 SHIPPED \u2014 short vowel + P, double P before -ED",
+    "difficulty": 2,
+    "sampleUsage": "The package was shipped yesterday.",
+    "category": "doubling-rule"
+  },
+  {
+    "word": "dilemma",
+    "grade": 5,
+    "phonicPattern": "double consonant",
+    "commonMistake": "dilema",
+    "memoryTip": "DI + LEMMA \u2014 double M in the middle",
+    "difficulty": 4,
+    "sampleUsage": "He faced a difficult dilemma at school.",
+    "category": "double-consonant"
+  },
+  {
+    "word": "skedaddled",
+    "grade": 5,
+    "phonicPattern": "double consonant",
+    "commonMistake": "skedadled",
+    "memoryTip": "SKE + DADD + LED \u2014 double D in the middle",
+    "difficulty": 5,
+    "sampleUsage": "The cat skedaddled when it saw the dog.",
+    "category": "double-consonant"
+  },
+  {
+    "word": "stalwart",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "stalwert",
+    "memoryTip": "STAL + WART \u2014 ends in -ART not -ERT",
+    "difficulty": 5,
+    "sampleUsage": "She was a stalwart member of the team.",
+    "category": "general-spelling"
+  },
+  {
+    "word": "despicable",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "dispicable",
+    "memoryTip": "DES + PIC + ABLE \u2014 starts with DES- not DIS-",
+    "difficulty": 4,
+    "sampleUsage": "The villain's plan was truly despicable.",
+    "category": "general-spelling"
+  },
+  {
+    "word": "assay",
+    "grade": 5,
+    "phonicPattern": "double consonant",
+    "commonMistake": "asay",
+    "memoryTip": "AS + SAY \u2014 double S at the start",
+    "difficulty": 3,
+    "sampleUsage": "The scientist performed an assay on the sample.",
+    "category": "double-consonant"
+  },
+  {
+    "word": "monotony",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "monoteny",
+    "memoryTip": "MONO + TONY \u2014 ends in -ONY not -ENY",
+    "difficulty": 4,
+    "sampleUsage": "The monotony of the long drive put him to sleep.",
+    "category": "general-spelling"
+  },
+  {
+    "word": "given",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "givven",
+    "memoryTip": "GIVE + N \u2014 no double V, just drop the E and add N",
+    "difficulty": 1,
+    "sampleUsage": "She was given a gold star for her work.",
+    "category": "general-spelling"
+  },
+  {
+    "word": "molting",
+    "grade": 5,
+    "phonicPattern": "no-double rule",
+    "commonMistake": "moltting",
+    "memoryTip": "MOLT \u2192 MOLTING \u2014 ends in two consonants LT, so no doubling",
+    "difficulty": 2,
+    "sampleUsage": "The bird was molting its old feathers.",
+    "category": "no-double-rule"
+  },
+  {
+    "word": "predict",
+    "grade": 5,
+    "phonicPattern": "prefix pre-",
+    "commonMistake": "pridict",
+    "memoryTip": "PRE + DICT \u2014 pre- means before, as in predict the future",
+    "difficulty": 2,
+    "sampleUsage": "Can you predict what happens next?",
+    "category": "prefix-words"
+  },
+  {
+    "word": "rich",
+    "grade": 5,
+    "phonicPattern": "ch digraph",
+    "commonMistake": "ritch",
+    "memoryTip": "RICH \u2014 CH after a short vowel, not TCH",
+    "difficulty": 1,
+    "sampleUsage": "The chocolate cake was very rich.",
+    "category": "consonant-patterns"
+  },
+  {
+    "word": "realised",
+    "grade": 5,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "realized",
+    "memoryTip": "REAL + ISED \u2014 British spelling uses -ISE not -IZE",
+    "difficulty": 3,
+    "sampleUsage": "She realised she had left her bag behind.",
+    "category": "general-spelling"
+  },
+  {
+    "word": "hopeful",
+    "grade": 5,
+    "phonicPattern": "ful suffix",
+    "commonMistake": "hopefull",
+    "memoryTip": "HOPE + FUL \u2014 the suffix -FUL has ONE l; only the word full has two",
+    "difficulty": 2,
+    "sampleUsage": "She felt hopeful about the test results.",
+    "category": "ful-vs-full"
+  },
+  {
+    "word": "exaggerated",
+    "grade": 5,
+    "phonicPattern": "double consonant",
+    "commonMistake": "exagerated",
+    "memoryTip": "EX + AGG + ERATED \u2014 double G in the middle",
+    "difficulty": 4,
+    "sampleUsage": "His story was greatly exaggerated.",
+    "category": "double-consonant"
+  },
+  {
+    "word": "elude",
+    "grade": 5,
+    "phonicPattern": "prefix e-",
+    "commonMistake": "allude",
+    "memoryTip": "E + LUDE \u2014 e- means out/away; elude = escape",
+    "difficulty": 3,
+    "sampleUsage": "The answer seemed to elude him completely.",
+    "category": "prefix-words"
+  },
+  {
+    "word": "benefactor",
+    "grade": 5,
+    "phonicPattern": "prefix bene-",
+    "commonMistake": "bennefactor",
+    "memoryTip": "BENE + FACTOR \u2014 bene- means good/well, one N not two",
+    "difficulty": 4,
+    "sampleUsage": "A kind benefactor donated books to the school.",
+    "category": "prefix-words"
+  },
+  {
+    "word": "reprieve",
+    "grade": 5,
+    "phonicPattern": "ie rule",
+    "commonMistake": "repri\u00e8ve",
+    "memoryTip": "RE + PRIEVE \u2014 IE not EI, sounds like long E",
+    "difficulty": 4,
+    "sampleUsage": "The prisoner was granted a last-minute reprieve.",
+    "category": "ie-ei-rule"
   }
 ]

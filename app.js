@@ -56,8 +56,9 @@ const CATEGORY_LABELS = {
   "no-double-rule":       "Don't double: -ing / -ed",
   "suffix-tion-sion":     "-tion / -sion words",
   "suffix-ous-ious":      "-ous / -ious words",
-  "suffix-ness-ful-less": "-ness / -ment / -less",
-  "prefix-words":         "Prefixes re-, un-, dis-",
+  "suffix-ness-ment-less": "-ness / -ment / -less",
+  "ful-vs-full":           "Suffix -ful means full of",
+  "prefix-words":          "Prefixes re-, un-, dis-",
   "soft-c-g":             "Soft c & g sounds",
   "double-consonant":     "Double consonants",
   "vowel-teams":          "Vowel teams",
@@ -94,12 +95,13 @@ const CATEGORY_HINTS = {
   "no-double-rule": "sleep→sleeping · arrest→arrested · happen→happened — two vowels, two consonants, or unstressed ending: don't double",
   "suffix-tion-sion": "nation · tension · question — no reliable rule; memorise each word",
   "suffix-ous-ious": "famous · delicious · various",
-  "suffix-ness-ful-less": "kindness · movement · useless",
+  "suffix-ness-ment-less": "kindness · movement · useless",
+  "ful-vs-full": "hopeful · careful · helpful — the suffix -ful has ONE l; only the standalone word full has two l's",
   "prefix-words": "re- · un- · dis- · mis- — re=again · un=not · dis=opposite · mis=wrongly",
   "soft-c-g": "centre · gentle · giant — c or g before e, i, or y → soft sound: c→s, g→j",
   "double-consonant": "address · mirror · beginning",
   "vowel-teams": "could · journey · beautiful",
-  "consonant-patterns": "phone · watch · cheer — ph makes f sound · tch comes after a short vowel",
+  "consonant-patterns": "phone · watch · cheer — ph makes f sound · tch comes after a short vowel · qui (short i) vs que (short e): quick vs question",
   "homophones": "steal/steel · weather/whether",
   "math-science": "fraction · element · planet",
   "general-spelling": "mixed vocabulary practice",
@@ -118,7 +120,7 @@ const G1_CAT_ORDER = [
 const G5_CAT_ORDER = [
   "ie-ei-rule","plural-ies-ves","gh-ght-pattern","silent-letters",
   "doubling-rule","no-double-rule",
-  "suffix-tion-sion","suffix-ous-ious","suffix-ness-ful-less",
+  "suffix-tion-sion","suffix-ous-ious","suffix-ness-ment-less","ful-vs-full",
   "prefix-words","soft-c-g","double-consonant","vowel-teams",
   "consonant-patterns","homophones","math-science","general-spelling",
 ];
@@ -425,15 +427,22 @@ function buildMaskedHint(word) {
 }
 
 // ─── Spaced repetition ────────────────────────────────────────────────────────
-const SR_INTERVALS = [3, 7, 15];
+const SR_INTERVALS_ASSISTED   = [3, 7, 15];   // correct after a guided retry
+const SR_INTERVALS_UNASSISTED = [10, 25, 60]; // correct on first attempt
 
 function tickSR() {
   srQueue.forEach((item) => { item.dueIn -= 1; });
 }
 
-function scheduleSR(wordObj, correct, streak) {
+function scheduleSR(wordObj, correct, streak, assisted = false) {
   srQueue = srQueue.filter((item) => item.wordObj.word !== wordObj.word);
-  const interval = correct ? SR_INTERVALS[Math.min(streak - 1, SR_INTERVALS.length - 1)] : 2;
+  let interval;
+  if (!correct) {
+    interval = 2;
+  } else {
+    const table = assisted ? SR_INTERVALS_ASSISTED : SR_INTERVALS_UNASSISTED;
+    interval = table[Math.min(streak - 1, table.length - 1)];
+  }
   srQueue.push({ wordObj, dueIn: Math.max(1, interval) });
 }
 
@@ -633,10 +642,11 @@ submitAnsBtn.onclick = () => {
   const isCorrect = userInput.toLowerCase() === target.toLowerCase();
 
   if (isCorrect) {
+    const wasAssisted = retryMode;
     retryMode = false;
     const newlyMastered = recordAttempt(session, target, true, null);
     const streak = loadLifetime(grade)[target.toLowerCase()]?.streak ?? 1;
-    scheduleSR(currentWordObj, true, streak);
+    scheduleSR(currentWordObj, true, streak, wasAssisted);
     const syl = syllabify(target);
     output.innerHTML =
       buildWordleHTML(userInput, target) +
