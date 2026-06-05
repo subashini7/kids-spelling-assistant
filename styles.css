@@ -402,3 +402,165 @@ button:disabled {
   letter-spacing: 0.15em;
   color: var(--accent);
 }
+
+.app-version {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #aaa;
+  padding: 8px 0 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Vocabulary panel ──────────────────────────────────────────────────────── */
+.vocab-panel {
+  margin-top: 12px;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.vocab-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--accent, #3b82f6);
+  color: #fff;
+}
+
+.vocab-panel-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.vocab-close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1;
+}
+
+.vocab-close-btn:hover { background: rgba(255,255,255,0.2); }
+
+.vocab-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  max-height: 72vh;
+  overflow-y: auto;
+}
+
+/* ── Single vocabulary card ────────────────────────────────────────────────── */
+.vocab-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: #f8fafc;
+}
+
+.vocab-card-word {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent, #3b82f6);
+  letter-spacing: 0.01em;
+}
+
+.vocab-card-def {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.vocab-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.vocab-meta-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+.vocab-meta-label {
+  font-weight: 700;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+.vocab-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.vocab-chip {
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 20px;
+  padding: 1px 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.vocab-chip.antonym {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.vocab-card-extra {
+  margin-top: 8px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 8px;
+}
+
+.vocab-card-extra summary {
+  font-size: 0.78rem;
+  color: #64748b;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vocab-card-tip {
+  margin-top: 5px;
+  font-size: 0.8rem;
+  color: #475569;
+  font-style: italic;
+}
+
+.vocab-card-usage {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+/* ── Study button on cat-card ──────────────────────────────────────────────── */
+.cat-card-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.cat-btn-study {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border-radius: 7px;
+  border: 1px solid var(--accent, #3b82f6);
+  background: #fff;
+  color: var(--accent, #3b82f6);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cat-btn-study:hover { background: #eff6ff; }

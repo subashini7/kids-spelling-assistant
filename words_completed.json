@@ -2024,5 +2024,26 @@
     "memoryTip": "SEN + TENCE \u2014 ends in ENCE not ANCE",
     "difficulty": 2,
     "sampleUsage": "Every sentence starts with a capital letter."
+  },
+
+  {
+    "word": "got",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "gat",
+    "memoryTip": "GOT \u2014 G + O + T",
+    "difficulty": 2,
+    "sampleUsage": "I got a new red ball.",
+    "category": "short-o"
+  },
+  {
+    "word": "into",
+    "grade": 1,
+    "phonicPattern": "sounds-like",
+    "commonMistake": "intoe",
+    "memoryTip": "IN + TO \u2014 two small words",
+    "difficulty": 5,
+    "sampleUsage": "She jumped into the pool.",
+    "category": "short-i"
   }
 ]

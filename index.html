@@ -28,6 +28,7 @@
         <div class="grade-selector">
           <button type="button" id="grade-1-btn" class="grade-btn">Grade 1</button>
           <button type="button" id="grade-5-btn" class="grade-btn is-active">Grade 5</button>
+          <button type="button" id="uk-11-plus-btn" class="grade-btn">UK 11+</button>
         </div>
         <div class="difficulty-stepper" title="Word difficulty level (1 = easiest, 5 = hardest)">
           <span class="diff-label">Level</span>
@@ -79,10 +80,18 @@
     <div id="tab-learn" hidden>
       <p id="learn-prompt" class="learn-prompt">Select a grade above to see your word categories.</p>
       <div id="cat-grid" class="cat-grid"></div>
+      <div id="vocab-panel" class="vocab-panel" hidden>
+        <div class="vocab-panel-header">
+          <span id="vocab-panel-title" class="vocab-panel-title"></span>
+          <button id="vocab-close-btn" type="button" class="vocab-close-btn" aria-label="Close">✕</button>
+        </div>
+        <div id="vocab-panel-content" class="vocab-panel-content"></div>
+      </div>
     </div>
   </main>
 
-  <script type="module" src="app.js?v=20260601-2"></script>
+  <footer class="app-version">v2.2 · 2026-06-05</footer>
+  <script type="module" src="app.js?v=20260605-2"></script>
   <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/kids-spelling-assistant/sw.js")

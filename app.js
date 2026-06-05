@@ -7,6 +7,7 @@ const nextWordBtn     = document.getElementById("next-word-btn");
 const submitAnsBtn    = document.getElementById("submit-ans-btn");
 const grade1Btn       = document.getElementById("grade-1-btn");
 const grade5Btn       = document.getElementById("grade-5-btn");
+const grade11PlusBtn  = document.getElementById("uk-11-plus-btn");
 const childInput      = document.getElementById("child-input");
 const output          = document.getElementById("output");
 const celebration     = document.getElementById("celebration");
@@ -25,6 +26,10 @@ const learnPrompt     = document.getElementById("learn-prompt");
 const filterBar       = document.getElementById("filter-bar");
 const filterLabel     = document.getElementById("filter-label");
 const clearFilterBtn  = document.getElementById("clear-filter-btn");
+const vocabPanel      = document.getElementById("vocab-panel");
+const vocabPanelTitle = document.getElementById("vocab-panel-title");
+const vocabPanelContent = document.getElementById("vocab-panel-content");
+const vocabCloseBtn   = document.getElementById("vocab-close-btn");
 
 // ─── Category metadata ───────────────────────────────────────────────────────
 const CATEGORY_LABELS = {
@@ -66,6 +71,16 @@ const CATEGORY_LABELS = {
   "homophones":           "Easily confused pairs",
   "math-science":         "Math & science terms",
   "general-spelling":     "General spelling",
+  "latin-greek-roots":    "Latin & Greek roots",
+  "suffix-ance-ence":     "-ance / -ence endings",
+  "suffix-able-ible":     "-able / -ible endings",
+  "prefix-advanced":      "Advanced prefixes",
+  "vocabulary-11plus":    "11+ vocabulary",
+  "character-adjectives": "Character & personality",
+  "emotions-feelings":    "Emotions & feelings",
+  "precise-verbs":        "Precise verbs",
+  "setting-atmosphere":   "Setting & atmosphere",
+  "abstract-nouns":       "Abstract nouns",
 };
 
 const CATEGORY_HINTS = {
@@ -105,6 +120,16 @@ const CATEGORY_HINTS = {
   "homophones": "steal/steel · weather/whether",
   "math-science": "fraction · element · planet",
   "general-spelling": "mixed vocabulary practice",
+  "latin-greek-roots": "benevolent · chronological — bene=good · chrono=time · graph=writing",
+  "suffix-ance-ence": "resilience · exuberance — no reliable rule; memorise which ending each word takes",
+  "suffix-able-ible": "irresistible · formidable — -ible after complete root words · -able otherwise (no rule)",
+  "prefix-advanced": "unprecedented · extraordinary — un/in=not · extra=beyond · over/under=degree",
+  "vocabulary-11plus": "enigmatic · tenacious · sceptical — advanced 11+ exam vocabulary",
+  "character-adjectives": "aloof · haughty · nonchalant — words that describe how a person behaves or what they are like",
+  "emotions-feelings": "anguish · trepidation · euphoria — words for emotional states and inner feelings",
+  "precise-verbs": "scrutinise · endeavour · vanquish — exact action words that replace vague verbs",
+  "setting-atmosphere": "ethereal · forlorn · tempestuous — words that describe a scene, mood, or place",
+  "abstract-nouns": "integrity · adversity · sovereignty — complex ideas that cannot be physically touched",
 };
 
 const G1_CAT_ORDER = [
@@ -123,6 +148,14 @@ const G5_CAT_ORDER = [
   "suffix-tion-sion","suffix-ous-ious","suffix-ness-ment-less","ful-vs-full",
   "prefix-words","soft-c-g","double-consonant","vowel-teams",
   "consonant-patterns","homophones","math-science","general-spelling",
+];
+
+const G11_CAT_ORDER = [
+  "character-adjectives","emotions-feelings","precise-verbs",
+  "setting-atmosphere","abstract-nouns",
+  "latin-greek-roots","suffix-ance-ence","suffix-able-ible",
+  "suffix-ous-ious","suffix-tion-sion","prefix-advanced",
+  "silent-letters","double-consonant","homophones","vocabulary-11plus",
 ];
 
 // ─── Mastery helpers ─────────────────────────────────────────────────────────
@@ -218,10 +251,12 @@ async function selectGrade(g) {
   grade = g;
   grade1Btn.classList.toggle("is-active", g === 1);
   grade5Btn.classList.toggle("is-active", g === 5);
+  grade11PlusBtn.classList.toggle("is-active", g === "11+");
   await startPractice();
 }
-grade1Btn.onclick = () => selectGrade(1);
-grade5Btn.onclick = () => selectGrade(5);
+grade1Btn.onclick     = () => selectGrade(1);
+grade5Btn.onclick     = () => selectGrade(5);
+grade11PlusBtn.onclick = () => selectGrade("11+");
 
 // ─── Difficulty stepper ──────────────────────────────────────────────────────
 diffDecBtn.onclick = () => {
@@ -260,7 +295,7 @@ async function loadWordsForGrade(g, diff, cat) {
   const all = await fetchWords();
   return all
     .filter((w) => {
-      if (Number(w.grade) !== Number(g)) return false;
+      if (String(w.grade) !== String(g)) return false;
       if (masteredWords.has(w.word.toLowerCase())) return false; // skip mastered
       if (cat) return w.category === cat;
       return Number(w.difficulty) === Number(diff);
@@ -457,9 +492,13 @@ function getDueSRWord(pool, previousWord) {
 // ─── Speech ──────────────────────────────────────────────────────────────────
 function speakWord(word) {
   window.speechSynthesis.cancel();
+  // Resume first — required on Android Chrome to prevent silent playback after idle
+  window.speechSynthesis.resume();
   const utterance = new SpeechSynthesisUtterance(word);
-  utterance.rate = 0.5;
-  utterance.pitch = 1.1;
+  utterance.lang   = "en-GB";
+  utterance.rate   = 0.7;   // 0.5 can cause near-silence on Android TTS engines
+  utterance.pitch  = 1.1;
+  utterance.volume = 1;
   utterance.onerror = (e) => console.error("SpeechSynthesisUtterance error", e);
   window.speechSynthesis.speak(utterance);
 }
@@ -558,14 +597,14 @@ function playCelebration() {
 // ─── Learn tab builder ───────────────────────────────────────────────────────
 async function buildLearnTab(g) {
   const all = await fetchWords();
-  const gradeWords = all.filter((w) => Number(w.grade) === Number(g));
+  const gradeWords = all.filter((w) => String(w.grade) === String(g));
   const byCategory = {};
   for (const w of gradeWords) {
     const cat = w.category || "general-spelling";
     if (!byCategory[cat]) byCategory[cat] = [];
     byCategory[cat].push(w);
   }
-  const order = g === 1 ? G1_CAT_ORDER : G5_CAT_ORDER;
+  const order = g === 1 ? G1_CAT_ORDER : g === "11+" ? G11_CAT_ORDER : G5_CAT_ORDER;
   const sorted = Object.keys(byCategory).sort((a, b) => {
     const ia = order.indexOf(a), ib = order.indexOf(b);
     if (ia === -1 && ib === -1) return a.localeCompare(b);
@@ -573,24 +612,72 @@ async function buildLearnTab(g) {
     return ia - ib;
   });
   catGrid.innerHTML = "";
+  vocabPanel.hidden = true;
   learnPrompt.hidden = true;
+  const is11Plus = String(g) === "11+";
   for (const cat of sorted) {
     const catWords = byCategory[cat];
     const label = CATEGORY_LABELS[cat] || cat;
     const hint  = CATEGORY_HINTS[cat] || "";
     const card = document.createElement("div");
     card.className = "cat-card";
+    const studyBtn = is11Plus
+      ? `<button class="cat-btn-study" data-category="${cat}" type="button">Study →</button>`
+      : "";
     card.innerHTML = `
       <div class="cat-title">${label}</div>
       <div class="cat-hint">${hint}</div>
       <div class="cat-count">${catWords.length} word${catWords.length !== 1 ? "s" : ""}</div>
-      <button class="cat-btn" data-category="${cat}" type="button">Practice →</button>
+      <div class="cat-card-actions">
+        <button class="cat-btn" data-category="${cat}" type="button">Practice →</button>
+        ${studyBtn}
+      </div>
     `;
     catGrid.appendChild(card);
   }
 }
 
+function buildVocabCard(w) {
+  const e = (v) => v ? esc(v) : "";
+  const syns = Array.isArray(w.synonyms) && w.synonyms.length
+    ? w.synonyms.map(s => `<span class="vocab-chip">${e(s)}</span>`).join("")
+    : "";
+  const ant = w.antonym
+    ? `<div class="vocab-meta-block"><span class="vocab-meta-label">Opposite:</span><div class="vocab-chips"><span class="vocab-chip antonym">${e(w.antonym)}</span></div></div>`
+    : "";
+  const synRow = syns
+    ? `<div class="vocab-meta-block"><span class="vocab-meta-label">Similar:</span><div class="vocab-chips">${syns}</div></div>`
+    : "";
+  return `
+    <div class="vocab-card">
+      <div class="vocab-card-word">${e(w.word)}</div>
+      <div class="vocab-card-def">${e(w.definition)}</div>
+      <div class="vocab-card-meta">${synRow}${ant}</div>
+      <details class="vocab-card-extra">
+        <summary>Spelling tip &amp; example</summary>
+        <div class="vocab-card-tip">${e(w.memoryTip)}</div>
+        <div class="vocab-card-usage">"${e(w.sampleUsage)}"</div>
+      </details>
+    </div>`;
+}
+
+async function openVocabPanel(cat) {
+  const all = await fetchWords();
+  const catWords = all.filter(w => String(w.grade) === "11+" && w.category === cat);
+  vocabPanelTitle.textContent = CATEGORY_LABELS[cat] || cat;
+  vocabPanelContent.innerHTML = catWords.map(buildVocabCard).join("");
+  vocabPanel.hidden = false;
+  vocabPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+vocabCloseBtn.onclick = () => { vocabPanel.hidden = true; };
+
 catGrid.addEventListener("click", async (e) => {
+  if (e.target.closest(".cat-btn-study")) {
+    const cat = e.target.closest(".cat-btn-study").dataset.category;
+    openVocabPanel(cat);
+    return;
+  }
   const btn = e.target.closest(".cat-btn");
   if (!btn) return;
   const cat = btn.dataset.category;
