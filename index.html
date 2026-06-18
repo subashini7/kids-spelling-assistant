@@ -17,6 +17,12 @@
       <div id="status" class="status">Loading words...</div>
     </header>
 
+    <!-- Persistent child bar — shows after name is selected -->
+    <div id="child-bar" class="child-bar" hidden>
+      <span>👤 <strong id="child-bar-name"></strong></span>
+      <button type="button" id="child-switch-btn" class="child-switch-btn">Switch child</button>
+    </div>
+
     <nav class="tab-bar">
       <button class="tab-btn is-active" id="tab-btn-practice" type="button">Practice</button>
       <button class="tab-btn" id="tab-btn-learn" type="button">Learn</button>
@@ -58,7 +64,7 @@
             inputmode="text"
             id="child-input"
             spellcheck="false"
-            autocomplete="off"
+            autocomplete="new-password"
             autocorrect="off"
             autocapitalize="off"
           >
@@ -90,8 +96,21 @@
     </div>
   </main>
 
-  <footer class="app-version">v2.2 · 2026-06-05</footer>
-  <script type="module" src="app.js?v=20260605-2"></script>
+  <!-- Child picker overlay — shown until a child name is selected -->
+  <div id="child-picker-overlay" class="child-overlay" style="display:none">
+    <div class="child-overlay-box">
+      <h2 class="child-overlay-title">Who&#39;s practising? 🎓</h2>
+      <div id="child-list" class="child-list"></div>
+      <div class="child-add-row">
+        <input type="text" id="new-child-input" placeholder="Enter a name…" maxlength="24"
+               autocomplete="off" autocorrect="off" autocapitalize="words">
+        <button type="button" id="new-child-btn">Start →</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-version">v2.3 · 2026-06-15</footer>
+  <script type="module" src="app.js?v=20260615-1"></script>
   <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/kids-spelling-assistant/sw.js")

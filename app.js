@@ -1,4 +1,30 @@
 
+// Firebase is loaded dynamically so the app still works offline if the CDN is unreachable.
+let db = null, _doc = null, _getDoc = null, _setDoc = null;
+try {
+  const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+  const fs = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+  db      = fs.getFirestore(initializeApp({
+    apiKey:            "AIzaSyCspn_1ZGBUiE7UZqvZCmqWsM1pZeqjrBg",
+    authDomain:        "kids-spelling-assistant.firebaseapp.com",
+    projectId:         "kids-spelling-assistant",
+    storageBucket:     "kids-spelling-assistant.firebasestorage.app",
+    messagingSenderId: "1092258751242",
+    appId:             "1:1092258751242:web:299c3847fedce56799d0f3",
+  }));
+  _doc    = fs.doc;
+  _getDoc = fs.getDoc;
+  _setDoc = fs.setDoc;
+} catch (e) {
+  console.warn('Firebase SDK unavailable (offline?):', e);
+}
+
+let currentChild = '';
+
+function childSlug(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]/g, '_').slice(0, 24);
+}
+
 // ─── DOM refs ────────────────────────────────────────────────────────────────
 const statusEl        = document.getElementById("status");
 const audioBtn        = document.getElementById("hear-btn");
@@ -30,6 +56,14 @@ const vocabPanel      = document.getElementById("vocab-panel");
 const vocabPanelTitle = document.getElementById("vocab-panel-title");
 const vocabPanelContent = document.getElementById("vocab-panel-content");
 const vocabCloseBtn   = document.getElementById("vocab-close-btn");
+// Child picker
+const childOverlay    = document.getElementById("child-picker-overlay");
+const childList       = document.getElementById("child-list");
+const newChildInput   = document.getElementById("new-child-input");
+const newChildBtn     = document.getElementById("new-child-btn");
+const childBar        = document.getElementById("child-bar");
+const childBarName    = document.getElementById("child-bar-name");
+const childSwitchBtn  = document.getElementById("child-switch-btn");
 
 // ─── Category metadata ───────────────────────────────────────────────────────
 const CATEGORY_LABELS = {
@@ -164,8 +198,8 @@ const G11_CAT_ORDER = [
 
 const MASTERY_STREAK = 3;
 
-function masteryKey(g)  { return `spellquest_mastered_g${g}`; }
-function lifetimeKey(g) { return `spellquest_lifetime_g${g}`; }
+function masteryKey(g)  { return `spellquest_mastered_${childSlug(currentChild)}_g${g}`; }
+function lifetimeKey(g) { return `spellquest_lifetime_${childSlug(currentChild)}_g${g}`; }
 
 function loadMasteredSet(g) {
   try {
@@ -189,9 +223,40 @@ function saveLifetime(g, stats) {
   localStorage.setItem(lifetimeKey(g), JSON.stringify(stats));
 }
 
+// ─── Firebase / Firestore ─────────────────────────────────────────────────────
+
+function fsGradeKey(g) {
+  return `mastered_g${String(g).replace('+', 'plus')}`;
+}
+
+async function syncFromFirestore(childName) {
+  if (!db) return;
+  try {
+    const snap = await _getDoc(_doc(db, 'children', childName));
+    if (!snap.exists()) return;
+    const data = snap.data();
+    for (const g of [1, 5, '11+']) {
+      const arr = data[fsGradeKey(g)];
+      if (Array.isArray(arr) && arr.length) {
+        const merged = new Set([...loadMasteredSet(g), ...arr]);
+        saveMasteredSet(g, merged);
+      }
+    }
+  } catch (e) {
+    console.warn('Firestore sync skipped (offline?):', e);
+  }
+}
+
+function pushMasteredToFirestore(g) {
+  if (!db || !currentChild) return;
+  const words = [...loadMasteredSet(g)];
+  _setDoc(_doc(db, 'children', currentChild), { [fsGradeKey(g)]: words }, { merge: true })
+    .catch(e => console.warn('Firestore write skipped:', e));
+}
+
 // ─── State ───────────────────────────────────────────────────────────────────
 const SESSION_KEY = (g) =>
-  `spellquest_session_g${g}_${new Date().toISOString().slice(0, 10)}`;
+  `spellquest_session_${childSlug(currentChild)}_g${g}_${new Date().toISOString().slice(0, 10)}`;
 let currentWordObj = null;
 let lastWord       = null;
 let grade          = 5;
@@ -203,6 +268,60 @@ let allWordsCache  = null;
 let masteredWords  = loadMasteredSet(grade);
 let retryMode      = false;
 let srQueue        = []; // [{ wordObj, dueIn }]
+
+// ─── Child picker ─────────────────────────────────────────────────────────────
+
+const CHILDREN_KEY      = 'spellquest_children';
+const CURRENT_CHILD_KEY = 'spellquest_current_child';
+
+function getChildrenList() {
+  try { return JSON.parse(localStorage.getItem(CHILDREN_KEY) || '[]'); }
+  catch { return []; }
+}
+
+function addChildToList(name) {
+  const list = getChildrenList().filter(n => n !== name);
+  list.unshift(name);
+  localStorage.setItem(CHILDREN_KEY, JSON.stringify(list.slice(0, 10)));
+}
+
+function showChildPicker() {
+  const children = getChildrenList();
+  childList.innerHTML = children.length
+    ? children.map(n => `<button type="button" class="child-name-btn" data-name="${esc(n)}">${esc(n)}</button>`).join('')
+    : '';
+  childList.style.display = children.length ? 'flex' : 'none';
+  newChildInput.value = '';
+  childOverlay.style.display = 'flex';
+}
+
+async function selectChild(name) {
+  name = (name || '').trim();
+  if (!name) { newChildInput.focus(); return; }
+  currentChild = name;
+  localStorage.setItem(CURRENT_CHILD_KEY, currentChild);
+  addChildToList(currentChild);
+  childBarName.textContent = currentChild;
+  childBar.hidden = false;
+  childOverlay.style.display = 'none';
+  statusEl.innerText = 'Syncing…';
+  await syncFromFirestore(currentChild);
+  try {
+    await startPractice();
+  } catch (e) {
+    statusEl.innerText = `Error loading words: ${e.message}`;
+  }
+}
+
+childList.addEventListener('click', (e) => {
+  const btn = e.target.closest('.child-name-btn');
+  if (btn) selectChild(btn.dataset.name);
+});
+newChildBtn.onclick = () => selectChild(newChildInput.value);
+newChildInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); selectChild(newChildInput.value); }
+});
+childSwitchBtn.onclick = showChildPicker;
 
 // ─── Tab switching ───────────────────────────────────────────────────────────
 function switchTab(name) {
@@ -363,6 +482,7 @@ function recordAttempt(nextSession, word, correct, errorType = null) {
   if (newlyMastered) {
     masteredWords.add(wordKey);
     saveMasteredSet(grade, masteredWords);
+    pushMasteredToFirestore(grade);
     // Remove from the current session pool immediately
     words = words.filter((w) => w.word.toLowerCase() !== wordKey);
   }
@@ -778,8 +898,9 @@ childInput.addEventListener("keydown", (e) => {
 });
 
 // ─── Initial load ─────────────────────────────────────────────────────────────
-try {
-  await startPractice();
-} catch (e) {
-  statusEl.innerText = `Error loading words: ${e.message}`;
+const _savedChild = localStorage.getItem(CURRENT_CHILD_KEY);
+if (_savedChild) {
+  await selectChild(_savedChild);
+} else {
+  showChildPicker();
 }

@@ -1,0 +1,53 @@
+---
+name: git-commit-formatter
+description: Runs lint checks then commits using the Conventional Commits format. Use this when the user asks to commit changes or write a commit message.
+---
+
+# Git Commit Formatter Skill
+
+When the user asks to commit, follow this workflow in order. **Do not proceed to the next step if the current step fails.**
+
+## Step 1 — Run lint checks
+
+Detect and run the appropriate lint command for this project:
+
+- If `package.json` has a `lint` script → run `npm run lint`
+- Otherwise → run `node --check` on all changed `.js` files:
+  `git diff --name-only --cached --diff-filter=ACM | grep '\.js$' | xargs node --check`
+
+If lint **fails**:
+- Show the error output to the user
+- Stop immediately — do NOT commit
+- Tell the user: "Lint failed. Fix the errors above before committing."
+
+If lint **passes** (or there are no JS files to check), continue to Step 2.
+
+## Step 2 — Format the commit message
+
+Follow the Conventional Commits specification.
+
+### Format
+`<type>[optional scope]: <description>`
+
+### Allowed Types
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- **refactor**: A code change that neither fixes a bug nor adds a feature
+- **perf**: A code change that improves performance
+- **test**: Adding missing tests or correcting existing tests
+- **chore**: Changes to the build process or auxiliary tools and libraries
+
+### Instructions
+1. Analyze the staged changes to determine the primary `type`.
+2. Identify the `scope` if applicable (e.g., a specific file or component).
+3. Write a concise `description` in imperative mood ("add feature" not "added feature").
+4. If there are breaking changes, add a footer starting with `BREAKING CHANGE:`.
+
+### Example
+`feat(firebase): add per-child mastered words sync`
+
+## Step 3 — Commit
+
+Stage relevant files and create the commit using the formatted message.
