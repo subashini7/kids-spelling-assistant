@@ -4,14 +4,8 @@ let db = null, _doc = null, _getDoc = null, _setDoc = null;
 try {
   const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
   const fs = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
-  db      = fs.getFirestore(initializeApp({
-    apiKey:            "AIzaSyCspn_1ZGBUiE7UZqvZCmqWsM1pZeqjrBg",
-    authDomain:        "kids-spelling-assistant.firebaseapp.com",
-    projectId:         "kids-spelling-assistant",
-    storageBucket:     "kids-spelling-assistant.firebasestorage.app",
-    messagingSenderId: "1092258751242",
-    appId:             "1:1092258751242:web:299c3847fedce56799d0f3",
-  }));
+  const { firebaseConfig } = await import('./firebase-config.js');
+  db      = fs.getFirestore(initializeApp(firebaseConfig));
   _doc    = fs.doc;
   _getDoc = fs.getDoc;
   _setDoc = fs.setDoc;
