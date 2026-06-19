@@ -666,8 +666,8 @@ function formatSummaryText(summary) {
   // Lifetime mastery (all time, across sessions)
   if (masteredWords.size > 0) {
     lines.push("");
-    lines.push(`Total mastered words (all time): ${masteredWords.size}`);
-    lines.push(`These words won't appear in practice. Export below to update your word files.`);
+    lines.push(`Mastered words (${masteredWords.size} total — won't appear in practice):`);
+    lines.push([...masteredWords].sort().join(", "));
   }
 
   lines.push("");
@@ -811,7 +811,7 @@ catGrid.addEventListener("click", async (e) => {
 
 // ─── Event handlers ───────────────────────────────────────────────────────────
 audioBtn.onclick = () => {
-  if (!currentWordObj) { output.innerText = 'Click "Next word" first.'; childInput.focus(); return; }
+  if (!currentWordObj) { nextWordBtn.click(); return; }
   output.innerText = "Listening again...";
   speakWord(currentWordObj.word);
   childInput.focus();
