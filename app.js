@@ -382,14 +382,8 @@ diffIncBtn.onclick = () => {
 // ─── Filter bar ──────────────────────────────────────────────────────────────
 clearFilterBtn.onclick = async () => {
   categoryFilter = null;
-  retryMode = false;
   filterBar.hidden = true;
-  words = await loadWordsForGrade(grade, difficulty, null);
-  statusEl.innerText = words.length
-    ? `Loaded ${words.length} words for grade ${grade}, level ${difficulty}.`
-    : `No words found for grade ${grade}, level ${difficulty}.`;
-  setGameBtnsDisabled(words.length === 0);
-  currentWordObj = null;
+  await startPractice();
 };
 
 // ─── Read-only input until focused (prevents iOS auto-keyboard) ──────────────
@@ -799,20 +793,12 @@ catGrid.addEventListener("click", async (e) => {
   filterLabel.textContent = CATEGORY_LABELS[cat] || cat;
   filterBar.hidden = false;
   switchTab("practice");
-  retryMode = false;
-  words = await loadWordsForGrade(grade, difficulty, cat);
-  statusEl.innerText = words.length
-    ? `Loaded ${words.length} words for "${CATEGORY_LABELS[cat] || cat}".`
-    : `No words found for "${CATEGORY_LABELS[cat] || cat}".`;
-  setGameBtnsDisabled(words.length === 0);
-  currentWordObj = null;
-  output.innerText = words.length ? `Ready! Click "Next word" to start.` : `No words in this category yet.`;
+  await startPractice();
 });
 
 // ─── Event handlers ───────────────────────────────────────────────────────────
 audioBtn.onclick = () => {
   if (!currentWordObj) { nextWordBtn.click(); return; }
-  output.innerText = "Listening again...";
   speakWord(currentWordObj.word);
   childInput.focus();
 };
