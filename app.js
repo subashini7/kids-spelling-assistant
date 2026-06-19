@@ -477,8 +477,8 @@ function recordAttempt(nextSession, word, correct, errorType = null) {
     masteredWords.add(wordKey);
     saveMasteredSet(grade, masteredWords);
     pushMasteredToFirestore(grade);
-    // Remove from the current session pool immediately
     words = words.filter((w) => w.word.toLowerCase() !== wordKey);
+    if (words.length === 0) setGameBtnsDisabled(true);
   }
 
   return newlyMastered;
@@ -822,7 +822,7 @@ audioExampleBtn.onclick = () => {
 };
 
 nextWordBtn.onclick = () => {
-  if (!words.length) { output.innerText = "Words are still loading. Please wait."; childInput.focus(); return; }
+  if (!words.length) { output.innerText = "🎉 All words at this level are mastered! Switch level or category to continue."; setGameBtnsDisabled(true); childInput.focus(); return; }
   tickSR();
   retryMode = false;
   dailySummaryContent.innerText = '';
