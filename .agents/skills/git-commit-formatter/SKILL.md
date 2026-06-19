@@ -48,9 +48,26 @@ Follow the Conventional Commits specification.
 ### Example
 `feat(firebase): add per-child mastered words sync`
 
+## Step 2.5 — Update version footer
+
+Before committing, update the version footer in `index.html`:
+
+```html
+<footer class="app-version">vX.Y · YYYY-MM-DD</footer>
+```
+
+1. Read the current version from that line (e.g. `v2.3` or `v2.3.1`).
+2. Bump the version based on commit type:
+   - `feat` → increment minor (`v2.3` → `v2.4`, reset any patch to nothing)
+   - `fix`, `perf` → increment patch (`v2.3` → `v2.3.1`; `v2.3.1` → `v2.3.2`)
+   - `chore`, `docs`, `style`, `refactor`, `test` → keep version unchanged, update date only
+3. Set the date to today in `YYYY-MM-DD` format.
+4. Also update the `app.js` cache-bust query string on the `<script>` tag to match (e.g. `?v=20260618-1`).
+5. Stage `index.html` alongside the other changed files.
+
 ## Step 3 — Commit
 
-Stage relevant files and create the commit using the formatted message.
+Stage relevant files (including the updated `index.html`) and create the commit using the formatted message.
 
 ### README reminder (non-blocking)
 
