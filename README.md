@@ -1,12 +1,18 @@
 # Kids Spelling Assistant
 
-A Progressive Web App (PWA) for kids' spelling practice with audio, instant feedback, automatic mastery tracking, and a structured word bank across two grade levels.
+A Progressive Web App (PWA) for kids' spelling practice with audio, instant feedback, automatic mastery tracking, and a structured word bank across three grade levels.
 
 ## Features
 
+### Child profiles
+
+When the app first opens a name picker appears. Select an existing name or type a new one. Each child's progress (mastered words, session history, lifetime streaks) is stored separately under their name. Up to ten profiles are remembered. A **Switch child** button in the top bar lets you change profile at any time.
+
+Mastered words are also synced to Firebase Firestore so progress is preserved across devices for the same child name.
+
 ### Practice tab
 
-- **Select Grade and Level** — choose Grade 1 or Grade 5; words load automatically when the grade or level changes (no Start button needed)
+- **Select Grade and Level** — choose Grade 1, Grade 5, or UK 11+; words load automatically when the grade or level changes (no Start button needed)
 - **Difficulty selector** (levels 1–5) to control word complexity
 - **Hear a word** — reads the word aloud at a slow pace
 - **Hear an example** — reads the sample sentence aloud
@@ -39,17 +45,18 @@ Every correct or wrong answer updates a per-word lifetime record stored in `loca
 - The word is removed from the practice pool immediately — mid-session if needed
 - The output shows `"running" mastered — won't appear again!`
 - Mastered words stay excluded on every future session
+- Mastered words are synced to Firestore so they persist across devices
 
 #### Spaced repetition
 
-Words are automatically scheduled for review based on performance:
+Words are automatically scheduled for review based on performance. Two interval tracks are used depending on whether the child needed the guided retry:
 
-| Result | Review interval |
-|--------|----------------|
-| Wrong | After 2 words |
-| 1st correct | After 3 words |
-| 2nd correct | After 7 words |
-| 3rd+ correct | After 15 words |
+| Result | Review interval (unassisted) | Review interval (after retry) |
+|--------|------------------------------|-------------------------------|
+| Wrong | After 2 words | After 2 words |
+| 1st correct | After 10 words | After 3 words |
+| 2nd correct | After 25 words | After 7 words |
+| 3rd+ correct | After 60 words | After 15 words |
 
 When a review word comes due it takes priority over the normal weighted-random pick.
 
@@ -73,24 +80,31 @@ Each category card shows:
 
 Click **Practice →** on any card to jump straight to the Practice tab filtered to that category. A blue filter bar shows the active category; click **All words** to return to difficulty-level mode.
 
+For **UK 11+**, each card also has a **Study →** button that opens a vocabulary panel with a full definition, synonyms, antonym, spelling tip, and example sentence for every word in the category.
+
 #### Grade 1 categories (23)
 
 Short vowels (a/e/i/o/u) · Long 'a' silent-e / ai / ay · Long 'e' ee / ea · Long 'i' silent-e / ie / y-ending · Long 'o' silent-e / oa · oo sound · ou sound · ow sound · th words · wh words · Blends · r-vowels · Sight words
 
-#### Grade 5 categories (17)
+#### Grade 5 categories (18)
 
-ie vs ei rule · Plurals -ies & -ves · gh/ght patterns · Silent letters · **Double it** (-ing/-ed) · **Don't double** (-ing/-ed) · -tion/-sion · -ous/-ious · -ness/-ment/-less · Prefixes · Soft c & g · Double consonants · Vowel teams · ch/ph/tch · Homophones · Math & science · General spelling
+ie vs ei rule · Plurals -ies & -ves · gh/ght patterns · Silent letters · **Double it** (-ing/-ed) · **Don't double** (-ing/-ed) · -tion/-sion · -ous/-ious · -ness/-ment/-less · **Suffix -ful** · Prefixes · Soft c & g · Double consonants · Vowel teams · ch/ph/tch · Homophones · Math & science · General spelling
+
+#### UK 11+ categories (15)
+
+Character & personality · Emotions & feelings · Precise verbs · Setting & atmosphere · Abstract nouns · Latin & Greek roots · -ance/-ence endings · -able/-ible endings · -ous/-ious · -tion/-sion · Advanced prefixes · Silent letters · Double consonants · Homophones · 11+ vocabulary
 
 ## Word bank
 
-734 words across two grades.
+1,014 words across three grades.
 
 | Grade | Words | Difficulty range |
 |-------|-------|-----------------|
-| 1 | 214 | 1 – 5 |
-| 5 | 520 | 1 – 5 |
+| 1 | 212 | 1 – 5 |
+| 5 | 544 | 1 – 5 |
+| 11+ | 258 | 1 – 5 |
 
-Difficulty is scored from phonics pattern weight, word length, and syllable count, then bucketed into grade-specific quintiles. Each word includes: `category`, `phonicPattern`, `commonMistake`, `memoryTip`, `difficulty`, and `sampleUsage`.
+Difficulty is scored from phonics pattern weight, word length, and syllable count, then bucketed into grade-specific quintiles. Each word includes: `category`, `phonicPattern`, `commonMistake`, `memoryTip`, `difficulty`, and `sampleUsage`. Grade 11+ words additionally include `definition`, `synonyms`, and `antonym` for the vocabulary study panel.
 
 ## Run locally
 
@@ -109,6 +123,12 @@ The app includes a service worker and web manifest. Open it in Chrome or Safari 
 
 The service worker path assumes deployment at `/kids-spelling-assistant/`. Update `manifest.json` and `sw.js` if deploying to a different path.
 
+The service worker uses a mixed caching strategy: **network-first** for `words.json` and `app.js` (to pick up updates), and **cache-first** for all other assets (fast loads). The app works fully offline after the first visit.
+
+## Firebase setup
+
+Mastered words are synced to Firestore under a `children` collection keyed by child name. The project uses `kids-spelling-assistant` on Firebase. Copy `firebase-config.example.js` to `firebase-config.js` and fill in your project credentials to use your own Firestore instance. If Firebase is unreachable (offline or misconfigured) the app falls back gracefully to `localStorage` only.
+
 ## File structure
 
 ```
@@ -116,9 +136,11 @@ SpellCheckTransformer/
 ├── index.html             # Shell: tab bar, grade selector, Practice pane, Learn pane
 ├── app.js                 # All app logic (ES module, top-level await)
 ├── styles.css             # Styles: grade selector, tabs, cards, wordle tiles
-├── words.json             # Active word bank (734 words with category + difficulty)
+├── words.json             # Active word bank (1,014 words with category + difficulty)
 ├── words_completed.json   # Words removed from practice (already mastered / too easy)
+├── firebase-config.js     # Firebase project credentials (not committed)
+├── firebase-config.example.js  # Template for firebase-config.js
 ├── manifest.json          # PWA manifest
-├── sw.js                  # Service worker (cache-first)
-└── icons/                 # App icons (32 × 32 … 512 × 512)
+├── sw.js                  # Service worker (network-first for JS/JSON, cache-first otherwise)
+└── icons/                 # App icons (72 × 72 … 512 × 512)
 ```

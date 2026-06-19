@@ -51,3 +51,10 @@ Follow the Conventional Commits specification.
 ## Step 3 — Commit
 
 Stage relevant files and create the commit using the formatted message.
+
+### README reminder (non-blocking)
+
+If the commit type is `feat` or the changes affect setup, installation, or user-facing behaviour that a new user would need to know about, mention to the user after committing:
+> "Heads up: this adds a user-facing feature — README may need updating."
+
+Do not block the commit or check this for `fix`, `chore`, `refactor`, `style`, `perf`, or `test` commits.
