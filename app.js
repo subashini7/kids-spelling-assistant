@@ -187,10 +187,10 @@ const G11_CAT_ORDER = [
 ];
 
 // ─── Mastery helpers ─────────────────────────────────────────────────────────
-// A word is mastered when correctly spelled 3 times in a row (streak >= 3).
+// A word is mastered when correctly spelled 2 times in a row (streak >= 2).
 // Mastered words are excluded from practice and can be exported.
 
-const MASTERY_STREAK = 3;
+const MASTERY_STREAK = 2;
 
 function masteryKey(g)  { return `spellquest_mastered_${childSlug(currentChild)}_g${g}`; }
 function lifetimeKey(g) { return `spellquest_lifetime_${childSlug(currentChild)}_g${g}`; }

@@ -111,7 +111,7 @@ Difficulty is scored from phonics pattern weight, word length, and syllable coun
 Browsers block ES module scripts on `file://`, so use a local server:
 
 ```bash
-cd SpellCheckTransformer
+cd kids-spell-check
 python3 -m http.server 8000
 ```
 
@@ -132,7 +132,7 @@ Mastered words are synced to Firestore under a `children` collection keyed by ch
 ## File structure
 
 ```
-SpellCheckTransformer/
+kids-spell-check/
 ├── index.html             # Shell: tab bar, grade selector, Practice pane, Learn pane
 ├── app.js                 # All app logic (ES module, top-level await)
 ├── styles.css             # Styles: grade selector, tabs, cards, wordle tiles
