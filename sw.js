@@ -1,4 +1,4 @@
-const CACHE_NAME = "spellquest-v2";
+const CACHE_NAME = "spellquest-v3";
 
 // All static assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -62,7 +62,9 @@ self.addEventListener("fetch", (event) => {
 
   const isNetworkFirst =
     url.pathname.endsWith("words.json") ||
-    url.pathname.endsWith("app.js");
+    url.pathname.endsWith("app.js") ||
+    url.pathname.endsWith("/") ||
+    url.pathname.endsWith("index.html");
 
   event.respondWith(
     isNetworkFirst ? networkFirst(request) : cacheFirst(request)
