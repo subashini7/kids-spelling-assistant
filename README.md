@@ -132,6 +132,16 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
+## Tests
+
+The pure logic (spaced-repetition intervals, mastery tracking, masked hint) is tested with Node's built-in test runner — no extra dependencies needed:
+
+```bash
+npm test
+```
+
+Tests live in `tests/logic.test.js` and import from `logic.js`.
+
 ## PWA install
 
 The app includes a service worker and web manifest. Open it in Chrome or Safari and use **Add to Home Screen** / **Install app** to install it as a standalone PWA.
@@ -148,14 +158,19 @@ Mastered words are synced to Firestore under a `children` collection keyed by ch
 
 ```
 kids-spelling-assistant/
-├── index.html             # Shell: tab bar, grade selector, Practice pane, Learn pane
-├── app.js                 # All app logic (ES module, top-level await)
-├── styles.css             # Styles: grade selector, tabs, cards, wordle tiles
-├── words.json             # Active word bank (1,014 words with category + difficulty)
-├── words_completed.json   # Words removed from practice (already mastered / too easy)
-├── firebase-config.js     # Firebase project credentials (not committed)
+├── index.html                  # Shell: tab bar, grade selector, Practice pane, Learn pane
+├── app.js                      # All app logic (ES module, top-level await)
+├── logic.js                    # Pure functions (SR intervals, mastery, hint) — also used by tests
+├── styles.css                  # Styles: grade selector, tabs, cards, wordle tiles
+├── words.json                  # Active word bank (1,014 words with category + difficulty)
+├── words_completed.json        # Words removed from practice (already mastered / too easy)
+├── firebase-config.js          # Firebase project credentials (not committed)
 ├── firebase-config.example.js  # Template for firebase-config.js
-├── manifest.json          # PWA manifest
-├── sw.js                  # Service worker (network-first for JS/JSON, cache-first otherwise)
-└── icons/                 # App icons (72 × 72 … 512 × 512)
+├── manifest.json               # PWA manifest
+├── sw.js                       # Service worker (network-first for JS/JSON/HTML, cache-first otherwise)
+├── package.json                # npm test script
+├── tests/
+│   └── logic.test.js           # Unit tests (node:test, no dependencies)
+├── screenshots/                # README screenshots
+└── icons/                      # App icons (72 × 72 … 512 × 512)
 ```
