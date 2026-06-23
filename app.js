@@ -1,4 +1,6 @@
 
+import { MASTERY_STREAK, computeSRInterval, updateLifetimeEntry, buildMaskedHint } from './logic.js';
+
 // Firebase is loaded dynamically so the app still works offline if the CDN is unreachable.
 let db = null, _doc = null, _getDoc = null, _setDoc = null;
 try {
@@ -187,10 +189,6 @@ const G11_CAT_ORDER = [
 ];
 
 // ─── Mastery helpers ─────────────────────────────────────────────────────────
-// A word is mastered when correctly spelled 2 times in a row (streak >= 2).
-// Mastered words are excluded from practice and can be exported.
-
-const MASTERY_STREAK = 2;
 
 function masteryKey(g)  { return `spellquest_mastered_${childSlug(currentChild)}_g${g}`; }
 function lifetimeKey(g) { return `spellquest_lifetime_${childSlug(currentChild)}_g${g}`; }
@@ -335,20 +333,41 @@ async function startPractice() {
   session = loadTodaySession(grade);
   masteredWords = loadMasteredSet(grade);
 
+  let autoAdvancedFrom = null;
+
   if (categoryFilter) {
     statusEl.innerText = `Loading "${CATEGORY_LABELS[categoryFilter] || categoryFilter}"...`;
     words = await loadWordsForGrade(grade, difficulty, categoryFilter);
   } else {
     statusEl.innerText = `Loading grade ${grade}, level ${difficulty}...`;
     words = await loadWordsForGrade(grade, difficulty, null);
+
+    // If this level is empty (all mastered), advance to the nearest level that has words.
+    if (words.length === 0) {
+      const others = [1, 2, 3, 4, 5]
+        .filter((l) => l !== difficulty)
+        .sort((a, b) => Math.abs(a - difficulty) - Math.abs(b - difficulty));
+      for (const lvl of others) {
+        const candidate = await loadWordsForGrade(grade, lvl, null);
+        if (candidate.length > 0) {
+          autoAdvancedFrom = difficulty;
+          difficulty = lvl;
+          diffDisplay.textContent = difficulty;
+          words = candidate;
+          break;
+        }
+      }
+    }
   }
 
   const label = categoryFilter
     ? `"${CATEGORY_LABELS[categoryFilter] || categoryFilter}"`
     : `grade ${grade}, level ${difficulty}`;
-  statusEl.innerText = words.length
-    ? `Loaded ${words.length} words (${label}).`
-    : `No words found for ${label}.`;
+  statusEl.innerText = autoAdvancedFrom
+    ? `Level ${autoAdvancedFrom} complete — moved to level ${difficulty} (${words.length} words).`
+    : words.length
+      ? `Loaded ${words.length} words (${label}).`
+      : `No words found for ${label}.`;
 
   setGameBtnsDisabled(words.length === 0);
   currentWordObj = null;
@@ -391,9 +410,13 @@ childInput.setAttribute("readonly", "true");
 childInput.addEventListener("focus", () => childInput.removeAttribute("readonly"));
 
 // ─── Word loading ─────────────────────────────────────────────────────────────
-async function fetchWords() {
+// Cache the Promise so concurrent callers share one fetch instead of racing.
+function fetchWords() {
   if (!allWordsCache) {
-    allWordsCache = await fetch("words.json").then((r) => r.json());
+    allWordsCache = fetch("words.json").then((r) => {
+      if (!r.ok) throw new Error(`words.json ${r.status}`);
+      return r.json();
+    });
   }
   return allWordsCache;
 }
@@ -454,14 +477,7 @@ function recordAttempt(nextSession, word, correct, errorType = null) {
 
   // Lifetime streak
   const lifetime = loadLifetime(grade);
-  if (!lifetime[wordKey]) lifetime[wordKey] = { correct: 0, errors: 0, streak: 0 };
-  if (correct) {
-    lifetime[wordKey].correct += 1;
-    lifetime[wordKey].streak += 1;
-  } else {
-    lifetime[wordKey].errors += 1;
-    lifetime[wordKey].streak = 0;
-  }
+  lifetime[wordKey] = updateLifetimeEntry(lifetime[wordKey], correct);
   saveLifetime(grade, lifetime);
 
   // Check mastery threshold
@@ -501,8 +517,11 @@ function syllabify(word) {
     } else { i++; }
   }
 
-  // Drop trailing silent e
+  // Drop trailing silent e, but NOT in -Cle endings (trouble, table, simple)
+  // where the -le forms its own syllable.
+  const isCle = w.endsWith('le') && !isVowel(w[w.length - 3]);
   if (
+    !isCle &&
     nuclei.length > 1 && w.endsWith('e') &&
     !isVowel(w[w.length - 2]) &&
     nuclei[nuclei.length - 1].start === w.length - 1
@@ -515,9 +534,10 @@ function syllabify(word) {
     const after  = nuclei[n].end + 1;
     const before = nuclei[n + 1].start;
     const cons   = w.slice(after, before);
-    if (cons.length === 0) {
-      breaks.push(after);
-    } else if (cons.length === 1) {
+    // For -Cle words, the final syllable is always -Cle: split 2 before the vowel.
+    if (isCle && n === nuclei.length - 2 && cons.length >= 2) {
+      breaks.push(before - 2);
+    } else if (cons.length <= 1) {
       breaks.push(after);
     } else if (cons.length === 2) {
       breaks.push((DIGRAPHS.has(cons) || BLENDS.has(cons)) ? after : after + 1);
@@ -563,30 +583,15 @@ function buildWordleHTML(typed, target) {
   return `<div class="wordle-row">${spans.join('')}</div>`;
 }
 
-function buildMaskedHint(word) {
-  if (word.length <= 2) return word;
-  return [...word].map((ch, i) => (i === 0 || i === word.length - 1) ? ch : '_').join(' ') +
-    `  (${word.length} letters)`;
-}
-
 // ─── Spaced repetition ────────────────────────────────────────────────────────
-const SR_INTERVALS_ASSISTED   = [3, 7, 15];   // correct after a guided retry
-const SR_INTERVALS_UNASSISTED = [10, 25, 60]; // correct on first attempt
 
 function tickSR() {
   srQueue.forEach((item) => { item.dueIn -= 1; });
 }
 
-function scheduleSR(wordObj, correct, streak, assisted = false) {
+function scheduleSR(wordObj, correct, assisted = false) {
   srQueue = srQueue.filter((item) => item.wordObj.word !== wordObj.word);
-  let interval;
-  if (!correct) {
-    interval = 2;
-  } else {
-    const table = assisted ? SR_INTERVALS_ASSISTED : SR_INTERVALS_UNASSISTED;
-    interval = table[Math.min(streak - 1, table.length - 1)];
-  }
-  srQueue.push({ wordObj, dueIn: Math.max(1, interval) });
+  srQueue.push({ wordObj, dueIn: computeSRInterval(correct, assisted) });
 }
 
 function getDueSRWord(pool, previousWord) {
@@ -722,29 +727,46 @@ async function buildLearnTab(g) {
   catGrid.innerHTML = "";
   vocabPanel.hidden = true;
   learnPrompt.hidden = true;
-  const is11Plus = String(g) === "11+";
   for (const cat of sorted) {
     const catWords = byCategory[cat];
     const label = CATEGORY_LABELS[cat] || cat;
     const hint  = CATEGORY_HINTS[cat] || "";
     const card = document.createElement("div");
     card.className = "cat-card";
-    const studyBtn = is11Plus
-      ? `<button class="cat-btn-study" data-category="${cat}" type="button">Study →</button>`
-      : "";
     card.innerHTML = `
       <div class="cat-title">${label}</div>
       <div class="cat-hint">${hint}</div>
       <div class="cat-count">${catWords.length} word${catWords.length !== 1 ? "s" : ""}</div>
       <div class="cat-card-actions">
         <button class="cat-btn" data-category="${cat}" type="button">Practice →</button>
-        ${studyBtn}
+        <button class="cat-btn-study" data-category="${cat}" type="button">Study →</button>
       </div>
     `;
     catGrid.appendChild(card);
   }
 }
 
+// Study card for Grade 1 and 5 — uses phonicPattern, commonMistake, memoryTip, sampleUsage.
+function buildStudyCard(w) {
+  const e = (v) => v ? esc(v) : "";
+  const pattern  = w.phonicPattern
+    ? `<div class="vocab-card-def">Phonic pattern: ${e(w.phonicPattern)}</div>` : "";
+  const mistake  = w.commonMistake
+    ? `<div class="vocab-meta-block"><span class="vocab-meta-label">Watch out for:</span> ${e(w.commonMistake)}</div>` : "";
+  return `
+    <div class="vocab-card">
+      <div class="vocab-card-word">${e(w.word)}</div>
+      ${pattern}
+      <div class="vocab-card-meta">${mistake}</div>
+      <details class="vocab-card-extra">
+        <summary>Memory tip &amp; example</summary>
+        <div class="vocab-card-tip">${e(w.memoryTip)}</div>
+        <div class="vocab-card-usage">"${e(w.sampleUsage)}"</div>
+      </details>
+    </div>`;
+}
+
+// Study card for UK 11+ — uses definition, synonyms, antonym, memoryTip, sampleUsage.
 function buildVocabCard(w) {
   const e = (v) => v ? esc(v) : "";
   const syns = Array.isArray(w.synonyms) && w.synonyms.length
@@ -771,9 +793,10 @@ function buildVocabCard(w) {
 
 async function openVocabPanel(cat) {
   const all = await fetchWords();
-  const catWords = all.filter(w => String(w.grade) === "11+" && w.category === cat);
+  const catWords = all.filter(w => String(w.grade) === String(grade) && w.category === cat);
   vocabPanelTitle.textContent = CATEGORY_LABELS[cat] || cat;
-  vocabPanelContent.innerHTML = catWords.map(buildVocabCard).join("");
+  const is11Plus = String(grade) === "11+";
+  vocabPanelContent.innerHTML = catWords.map(is11Plus ? buildVocabCard : buildStudyCard).join("");
   vocabPanel.hidden = false;
   vocabPanel.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -832,8 +855,7 @@ submitAnsBtn.onclick = () => {
     const wasAssisted = retryMode;
     retryMode = false;
     const newlyMastered = recordAttempt(session, target, true, null);
-    const streak = loadLifetime(grade)[target.toLowerCase()]?.streak ?? 1;
-    scheduleSR(currentWordObj, true, streak, wasAssisted);
+    scheduleSR(currentWordObj, true, wasAssisted);
     const syl = syllabify(target);
     output.innerHTML =
       buildWordleHTML(userInput, target) +
@@ -847,7 +869,7 @@ submitAnsBtn.onclick = () => {
     retryMode = true;
     const phonicPattern = currentWordObj.phonicPattern || 'phonics pattern';
     recordAttempt(session, target, false, phonicPattern);
-    scheduleSR(currentWordObj, false, 0);
+    scheduleSR(currentWordObj, false);
     output.innerHTML =
       buildWordleHTML(userInput, target) +
       `<div class="result-text retry-prompt">Not quite — try again!<br>` +

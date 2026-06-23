@@ -1,6 +1,12 @@
 # Kids Spelling Assistant
 
+**Live demo:** https://subashini7.github.io/kids-spelling-assistant/
+
 A Progressive Web App (PWA) for kids' spelling practice with audio, instant feedback, automatic mastery tracking, and a structured word bank across three grade levels.
+
+| Correct answer | Wrong answer & hint | Learn tab | Study panel |
+|:-:|:-:|:-:|:-:|
+| ![Correct answer with green tiles and syllable breakdown](screenshots/correct.png) | ![Wrong answer with coloured tiles and masked hint](screenshots/wrong.png) | ![Learn tab showing spelling pattern categories](screenshots/learn.png) | ![Study panel showing phonic pattern and memory tip](screenshots/study.png) |
 
 ## Features
 
@@ -30,9 +36,13 @@ After every submission, each typed letter appears as a coloured tile:
 | Grey | Letter not in the word |
 | Red | Extra letters beyond the word length |
 
+![Correct answer — all green tiles with syllable breakdown](screenshots/correct.png)
+
 #### Guided retry
 
-On the **first** wrong attempt the input clears and a masked hint appears (first and last letter revealed, e.g. `b _ _ _ _ _ _ _ g  (9 letters)`). The child gets one more try before the answer is revealed. Only the original error is recorded — the child is never penalised twice for the same word.
+On the **first** wrong attempt the input clears and a masked hint appears (first and last letter revealed, e.g. `b _ _ _ _ _ _ _ g  (9 letters)`).
+
+![Wrong answer — coloured tiles with first/last-letter hint](screenshots/wrong.png) The child gets one more try before the answer is revealed. Only the original error is recorded — the child is never penalised twice for the same word.
 
 #### Syllable breakdown
 
@@ -49,16 +59,15 @@ Every correct or wrong answer updates a per-word lifetime record stored in `loca
 
 #### Spaced repetition
 
-Words are automatically scheduled for review based on performance. Two interval tracks are used depending on whether the child needed the guided retry:
+After every answer the word is scheduled for one review before it can be mastered:
 
-| Result | Review interval (unassisted) | Review interval (after retry) |
-|--------|------------------------------|-------------------------------|
-| Wrong | After 2 words | After 2 words |
-| 1st correct | After 10 words | After 3 words |
-| 2nd correct | After 25 words | After 7 words |
-| 3rd+ correct | After 60 words | After 15 words |
+| Result | Review interval |
+|--------|----------------|
+| Wrong | After 2 words |
+| Correct (first attempt) | After 10 words |
+| Correct (after guided retry) | After 3 words |
 
-When a review word comes due it takes priority over the normal weighted-random pick.
+When the review comes due it takes priority over the normal weighted-random pick. A second consecutive correct answer at that point marks the word as mastered.
 
 #### Daily Summary
 
@@ -72,6 +81,8 @@ The summary clears automatically when **Next word** is clicked so previous answe
 
 ### Learn tab
 
+![Learn tab — spelling pattern category cards](screenshots/learn.png)
+
 Browse spelling patterns and rules by grade. The Learn tab is available at any time — switching to it hides the practice controls, and switching back restores them.
 
 Each category card shows:
@@ -80,7 +91,11 @@ Each category card shows:
 
 Click **Practice →** on any card to jump straight to the Practice tab filtered to that category. A blue filter bar shows the active category; click **All words** to return to difficulty-level mode.
 
-For **UK 11+**, each card also has a **Study →** button that opens a vocabulary panel with a full definition, synonyms, antonym, spelling tip, and example sentence for every word in the category.
+Every card also has a **Study →** button that opens a study panel for all words in the category:
+- **Grade 1 & 5** — shows phonic pattern, common mistake to watch out for, memory tip, and example sentence
+- **UK 11+** — shows full definition, synonyms, antonym, spelling tip, and example sentence
+
+![Study panel showing phonic pattern and memory tip](screenshots/study.png)
 
 #### Grade 1 categories (23)
 
@@ -111,7 +126,7 @@ Difficulty is scored from phonics pattern weight, word length, and syllable coun
 Browsers block ES module scripts on `file://`, so use a local server:
 
 ```bash
-cd kids-spell-check
+cd kids-spelling-assistant
 python3 -m http.server 8000
 ```
 
@@ -132,7 +147,7 @@ Mastered words are synced to Firestore under a `children` collection keyed by ch
 ## File structure
 
 ```
-kids-spell-check/
+kids-spelling-assistant/
 ├── index.html             # Shell: tab bar, grade selector, Practice pane, Learn pane
 ├── app.js                 # All app logic (ES module, top-level await)
 ├── styles.css             # Styles: grade selector, tabs, cards, wordle tiles

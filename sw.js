@@ -1,4 +1,4 @@
-const CACHE_NAME = "spellquest-v1";
+const CACHE_NAME = "spellquest-v2";
 
 // All static assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -73,7 +73,10 @@ self.addEventListener("fetch", (event) => {
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_NAME);
   try {
-    const networkResponse = await fetch(request);
+    const controller = new AbortController();
+    const tid = setTimeout(() => controller.abort(), 4000);
+    const networkResponse = await fetch(request, { signal: controller.signal });
+    clearTimeout(tid);
     if (networkResponse.ok) {
       cache.put(request, networkResponse.clone());
     }
