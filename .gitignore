@@ -1,3 +1,5 @@
 .DS_Store
 **/.DS_Store
 firebase-config.js
+CLAUDE.md
+.agents/
