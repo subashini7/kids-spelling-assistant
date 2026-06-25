@@ -7,7 +7,7 @@ import {
   computeSRInterval,
   updateLifetimeEntry,
   buildMaskedHint,
-} from '../logic.js';
+} from '../scripts/logic.js';
 
 // ─── computeSRInterval ───────────────────────────────────────────────────────
 

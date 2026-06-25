@@ -4,9 +4,9 @@ const CACHE_NAME = "spellquest-v3";
 const PRECACHE_ASSETS = [
   "/kids-spelling-assistant/",
   "/kids-spelling-assistant/index.html",
-  "/kids-spelling-assistant/app.js",
-  "/kids-spelling-assistant/styles.css",
-  "/kids-spelling-assistant/words.json",
+  "/kids-spelling-assistant/scripts/app.js",
+  "/kids-spelling-assistant/styles/styles.css",
+  "/kids-spelling-assistant/data/words.json",
   "/kids-spelling-assistant/manifest.json",
   "/kids-spelling-assistant/icons/icon-72x72.png",
   "/kids-spelling-assistant/icons/icon-96x96.png",

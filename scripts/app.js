@@ -413,8 +413,8 @@ childInput.addEventListener("focus", () => childInput.removeAttribute("readonly"
 // Cache the Promise so concurrent callers share one fetch instead of racing.
 function fetchWords() {
   if (!allWordsCache) {
-    allWordsCache = fetch("words.json").then((r) => {
-      if (!r.ok) throw new Error(`words.json ${r.status}`);
+    allWordsCache = fetch("data/words.json").then((r) => {
+      if (!r.ok) throw new Error(`data/words.json ${r.status}`);
       return r.json();
     });
   }

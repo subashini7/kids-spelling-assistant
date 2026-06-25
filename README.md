@@ -140,7 +140,7 @@ The pure logic (spaced-repetition intervals, mastery tracking, masked hint) is t
 npm test
 ```
 
-Tests live in `tests/logic.test.js` and import from `logic.js`.
+Tests live in `tests/logic.test.js` and import from `scripts/logic.js`.
 
 ## PWA install
 
@@ -148,27 +148,30 @@ The app includes a service worker and web manifest. Open it in Chrome or Safari 
 
 The service worker path assumes deployment at `/kids-spelling-assistant/`. Update `manifest.json` and `sw.js` if deploying to a different path.
 
-The service worker uses a mixed caching strategy: **network-first** for `words.json` and `app.js` (to pick up updates), and **cache-first** for all other assets (fast loads). The app works fully offline after the first visit.
+The service worker uses a mixed caching strategy: **network-first** for `data/words.json` and `scripts/app.js` (to pick up updates), and **cache-first** for all other assets (fast loads). The app works fully offline after the first visit.
 
 ## Firebase setup
 
-Mastered words are synced to Firestore under a `children` collection keyed by child name. The project uses `kids-spelling-assistant` on Firebase. Copy `firebase-config.example.js` to `firebase-config.js` and fill in your project credentials to use your own Firestore instance. If Firebase is unreachable (offline or misconfigured) the app falls back gracefully to `localStorage` only.
+Mastered words are synced to Firestore under a `children` collection keyed by child name. The project uses `kids-spelling-assistant` on Firebase. Copy `scripts/firebase-config.example.js` to `scripts/firebase-config.js` and fill in your project credentials to use your own Firestore instance. If Firebase is unreachable (offline or misconfigured) the app falls back gracefully to `localStorage` only.
 
 ## File structure
 
 ```
 kids-spelling-assistant/
 ├── index.html                  # Shell: tab bar, grade selector, Practice pane, Learn pane
-├── app.js                      # All app logic (ES module, top-level await)
-├── logic.js                    # Pure functions (SR intervals, mastery, hint) — also used by tests
-├── styles.css                  # Styles: grade selector, tabs, cards, wordle tiles
-├── words.json                  # Active word bank (1,014 words with category + difficulty)
-├── words_completed.json        # Words removed from practice (already mastered / too easy)
-├── firebase-config.js          # Firebase project credentials (not committed)
-├── firebase-config.example.js  # Template for firebase-config.js
-├── manifest.json               # PWA manifest
-├── sw.js                       # Service worker (network-first for JS/JSON/HTML, cache-first otherwise)
+├── manifest.json               # PWA manifest (must be at root)
+├── sw.js                       # Service worker (must be at root for correct scope)
 ├── package.json                # npm test script
+├── scripts/
+│   ├── app.js                  # All app logic (ES module, top-level await)
+│   ├── logic.js                # Pure functions (SR intervals, mastery, hint) — also used by tests
+│   ├── firebase-config.js      # Firebase project credentials (not committed)
+│   └── firebase-config.example.js  # Template for firebase-config.js
+├── styles/
+│   └── styles.css              # Styles: grade selector, tabs, cards, wordle tiles
+├── data/
+│   ├── words.json              # Active word bank (1,014 words with category + difficulty)
+│   └── words_completed.json    # Words removed from practice (already mastered / too easy)
 ├── tests/
 │   └── logic.test.js           # Unit tests (node:test, no dependencies)
 ├── screenshots/                # README screenshots
