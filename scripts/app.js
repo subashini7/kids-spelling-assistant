@@ -370,6 +370,7 @@ async function startPractice() {
       : `No words found for ${label}.`;
 
   setGameBtnsDisabled(words.length === 0);
+  submitAnsBtn.disabled = false;
   currentWordObj = null;
   output.innerText = words.length
     ? `Grade ${grade} ready! Click "Next word" to begin.`
@@ -832,6 +833,7 @@ audioExampleBtn.onclick = () => {
 
 nextWordBtn.onclick = () => {
   if (!words.length) { output.innerText = "🎉 All words at this level are mastered! Switch level or category to continue."; setGameBtnsDisabled(true); childInput.focus(); return; }
+  submitAnsBtn.disabled = false;
   tickSR();
   retryMode = false;
   dailySummaryContent.innerText = '';
@@ -864,6 +866,7 @@ submitAnsBtn.onclick = () => {
         : 'Correct!'}</div>` +
       (syl !== target ? `<div class="syllable-line">Syllables: <strong>${esc(syl)}</strong></div>` : '');
     playCelebration();
+    submitAnsBtn.disabled = true;
 
   } else if (!retryMode) {
     retryMode = true;
@@ -887,6 +890,7 @@ submitAnsBtn.onclick = () => {
       `Tip: ${esc(memoryTip)}` +
       (syl !== target ? `<br>Syllables: <strong>${esc(syl)}</strong>` : '') +
       `</div>`;
+    submitAnsBtn.disabled = true;
   }
 };
 
