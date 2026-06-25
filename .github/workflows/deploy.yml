@@ -25,7 +25,7 @@ jobs:
 
       - name: Inject Firebase config from secrets
         run: |
-          cat > firebase-config.js << EOF
+          cat > scripts/firebase-config.js << EOF
           export const firebaseConfig = {
             apiKey:            "${{ secrets.FIREBASE_API_KEY }}",
             authDomain:        "${{ secrets.FIREBASE_AUTH_DOMAIN }}",
