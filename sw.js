@@ -1,10 +1,10 @@
-const CACHE_NAME = "spellquest-v3";
+const CACHE_NAME = "spellquest-v4";
 
 // All static assets to pre-cache on install
 const PRECACHE_ASSETS = [
   "/kids-spelling-assistant/",
   "/kids-spelling-assistant/index.html",
-  "/kids-spelling-assistant/scripts/app.js",
+  "/kids-spelling-assistant/scripts/app.js?v=20260625-1",
   "/kids-spelling-assistant/styles/styles.css",
   "/kids-spelling-assistant/data/words.json",
   "/kids-spelling-assistant/manifest.json",
